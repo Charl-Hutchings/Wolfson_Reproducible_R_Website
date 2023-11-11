@@ -1,0 +1,13 @@
+---
+title: "Lesson 2: Using R Markdown"
+author: "Charlotte Hutchings"
+date: "Nov 2023"
+---
+
+Objectives:
+
+* Create an R Notebook file and be aware of its three main components: header, markdown and code chunks
+* Be able to create and execute code chunks 
+* Know the syntax for basic R Markdown: headings, text links, lists, text formating etc.
+* Insert images and tables using `knitr`
+* Convert R notebooks into `pdf`, `htlm` or word `doc` files

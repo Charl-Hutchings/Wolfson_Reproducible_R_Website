@@ -1,0 +1,10 @@
+---
+title: "Contact"
+output: 
+  html_document:
+    toc: FALSE
+---
+
+If you have any questions about this course, please contact Charlotte Hutchings,
+course creator and trainer (ch941@cam.ac.uk) or Laura Jeffrey, Wolfson College
+Librarian (lkj26@cam.ac.uk).

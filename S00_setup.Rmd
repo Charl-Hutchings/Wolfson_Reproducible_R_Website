@@ -1,0 +1,162 @@
+---
+title: "Workshop setup"
+output: 
+  html_document:
+    toc: FALSE
+---
+
+<style type="text/css">
+
+body, td {
+   font-size: 18px;
+}
+code.r{
+  font-size: 14px;
+}
+pre {
+  font-size: 14px
+}
+</style>
+
+*This is the course handbook for WolfWorks: An introduction to R.*
+
+***
+
+## Pre-course setup 
+
+This lesson assumes that you have current versions of the following installed on 
+your computer:
+
+1. the [R software](https://cran.r-project.org/mirrors.html) itself, and
+2. [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/#download).
+
+R and RStudio require separate downloads and installations. R itself refers to 
+the underlying language and computing environment required to write and read 
+this language. RStudio is a graphical integrated development environment which
+essentially makes running R much easier and more interactive.  
+  
+\
+**Download the most up-to-date versions of R and RStudio onto your system.**  
+
+<details>  
+<summary>If you are working on a Windows system</summary> 
+<br>
+
+**If you already have a version of R and RStudio installed on your Windows system:**  
+*R itself*  
+
+- To check which version of R you are running, start RStudio and look at the 
+information printed in the console. The first line should state "R version x.x.x
+(date of install)". Alternatively, type `sessionInfo()` to display the version 
+of R that RStudio is currently running.
+- To confirm whether this version of R is the most current version, visit the
+[CRAN website](https://cran.r-project.org/bin/windows/base/). If a more recent
+version of R is available, install it. 
+- Although not necessary, if you wish to remove old versions of R from your 
+system, see [here](https://cran.r-project.org/bin/windows/base/rw-FAQ.html#How-do-I-UNinstall-R_003f) 
+for additional information.  
+
+*RStudio*
+
+- Open RStudio and click on "Help" > "Check for updates".  
+- If a new version of RStudio is available, quit RStudio and download the latest
+version [see below].  
+
+  
+**If you do not yet have R and RStudio installed on your Windows system:**  
+*R itself*  
+
+- Download R from the [CRAN website](https://cran.r-project.org/bin/windows/base/).
+
+*RStudio*
+
+- Go to the [RStudio download page](https://posit.co/download/rstudio-desktop/#download)
+and under *All Installers* select **RStudio xxxx.yy.zz-uuu.EXE - Windows 10/11**
+(where x, y, z and u represent version numbers). Double click the file to 
+install it.
+- Once installed, open RStudio to ensure that it works and you don't have any 
+error messages. Check that the R version is as expected (the most up to date 
+according to the [CRAN website](https://cran.r-project.org/bin/windows/base/)).
+
+</details>  
+
+
+<details>  
+<summary>If you are working on a MacOS system</summary> 
+<br>
+
+**If you already have a version of R and RStudio installed on your MacOS system:**  
+*R itself*
+
+- To check which version of R you are running, start RStudio and look at the 
+information printed in the console. The first line should state "R version x.x.x
+(date of install)". Alternatively, type `sessionInfo()` to display the version 
+of R that RStudio is currently running.
+- To confirm whether this version of R is the most current version, visit the
+[CRAN website](https://cran.r-project.org/bin/windows/base/). If a more recent
+version of R is available, install it. 
+- Although not necessary, if you wish to remove old versions of R from your 
+system, see [here](https://cran.r-project.org/bin/windows/base/rw-FAQ.html#How-do-I-UNinstall-R_003f) 
+for additional information.
+
+*RStudio*
+
+- Open RStudio and click on "Help" > "Check for updates".
+- If a new version of RStudio is available, quit RStudio and download the latest
+version [see below].
+
+
+**If you do not yet have R and RStudio installed on your MacOS system:**  
+*R itself*
+
+- Download R from the [CRAN website](https://cran.r-project.org/bin/macosx/) by 
+clicking on the `.pkg` file for the latest release. Make sure you select the
+correct file depending on whether your mac is an M1/M2 Mac or an older Intel Mac. 
+You can check this on your mac by going to "About this mac" and checking the type
+of processer you have.
+- Double click on the downloaded file to install R.
+
+*RStudio*
+
+- Go to the [RStudio download page](https://posit.co/download/rstudio-desktop/#download)
+and under *All Installers* select **RStudio xxxx.yy.zz-uuu.DMG - macOS 10.15+**
+(where x, y, z and u represent version numbers). Double click the file to 
+install it.
+- Once installed, open RStudio to ensure that it works and you don't have any 
+error messages. Check that the R version is as expected (the most up to date 
+according to the [CRAN website](https://cran.r-project.org/bin/macosx/)).
+
+</details>  
+
+<details>  
+<summary>If you are working on a Linux system</summary> 
+<br>
+
+**Installing R and RStudio on a Linux system**  
+*R itself*  
+
+- Follow the instructions for your distribution from [CRAN](https://cloud.r-project.org/bin/linux/).
+For most distributions, you could use your package manager (e.g., for Debian/Ubuntu
+run `sudo apt-get install r-base`, and for Fedora run `sudo yum install R`), but
+this is not recommended as the versions installed by this approach are typically
+out of date.  
+  
+*R Studio*  
+
+- Go to the [RStudio download page](https://posit.co/download/rstudio-desktop/#download)
+and under *All Installers* select the version that matches your distribution, 
+and install it with your preferred method (e.g., for Debian/Ubuntu 
+`sudo dpkg -i rstudio-xxxx.yy.zz-uuu-amd64.deb` at the terminal).
+- Once installed, open RStudio to ensure that it works and you don't have any 
+error messages. Check that the R version is as expected (the most up to date 
+according to the [CRAN website](https://cran.r-project.org/bin/macosx/)).  
+
+</details>
+<br>
+
+**You also need to download some files to follow this lesson:**
+
+1. Make a new folder in your Desktop called `r-training`.
+2. Within this folder, create three sub-folders called `raw_data`, `processed_data`,
+and `figures`.
+3. Download [rnaseq.csv](https://github.com/carpentries-incubator/bioc-intro/raw/main/episodes/data/rnaseq.csv) and move the file to the `raw_data` folder.

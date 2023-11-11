@@ -1,0 +1,11 @@
+---
+title: "Lesson 2: Writing clear, reproducible code"
+author: "Charlotte Hutchings"
+date: "Nov 2023"
+---
+
+Objectives:
+
+* Understand the importance of documenting what is being done in your code
+* Generate modular code 
+* Reduce repetition through the use of `loops` and `functions`

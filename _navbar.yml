@@ -1,0 +1,23 @@
+name: "Reproducible_R"
+title: "WolfWorks: Reproducible Research with R"
+type: inverse
+left:
+  - text: "Setup"
+    menu:
+      - text: "Course Outline"
+        href: ./S00_background.html
+      - text: "Course Setup"
+        href: ./S00_setup.html
+  - text: "Lessons"
+    menu:
+       - text: "R Projects"
+         href: ./S01_R_projects.html
+       - text: "R Markdown"
+         href: ./S02_R_markdown.html
+       - text: "Clean coding"
+         href: ./S03_clean_reproducible_coding.html
+  - text: "Contact"
+    href: ./contact.html
+right:
+  - icon: fa-github fa-lg
+    href: https://github.com/Charl-Hutchings/Reproducible_R

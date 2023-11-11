@@ -1,0 +1,96 @@
+---
+title: "Lesson 1: Project management using R projects"
+author: "Charlotte Hutchings"
+date: "Nov 2023"
+---
+
+Objectives:
+
+* Know how to create an R project and understand the benefits of doing so
+* Organise files and directories for an R project and understand the purpose of a working directory
+* Be aware of the different types of files that can be used in an R project
+
+
+# Starting with an R Project
+
+When using R for an extended task (e.g., all analyses relating to a project), it
+is good practice to keep all data, code, figures and results in a self-contained
+folder - a **working directory**. RStudio provides an easy way to do this 
+through its "Projects" interface.
+
+An R Project is essentially just a working directory with an associated `.RProj`
+file. When you open a project the working directory will automatically be set
+to the working directory in which the `.RProj` file is located. 
+
+Benefits of using an R project:
+
+* Transparency - easy to create annotated code which explains what is happening
+* Reproducibility - share projects easily using relative file paths (relative to project working directory)
+* Simplicity - keeps all files relating to an analysis in one place for easy access
+
+
+## Creating an R Project
+
+1. Start RStudio.
+2. Under the `File` menu, click on `New Project`. Choose `Existing Directory`
+3. Click the `Browse...` button and select a convenient location on your system
+4. Click on `Create Project`
+5. (Optional) Set Preferences to 'Never' save workspace in RStudio:
+
+RStudio's default preferences generally work well, but saving a workspace to a
+`.RData` file can be computationally heavy, especially if you are working with
+larger datasets as this would save all the data that is loaded into R into the 
+`.RData` file. To turn that off, go to `Tools` --> `Global Options` and select
+the 'Never' option for `Save workspace to .RData' on exit.`
+
+
+## The working directory 
+
+
+
+
+## Organising your working directory
+
+It is best to use a consistent folder structure across all of your projects as
+this will make it easier to find and file things in the future. In general, 
+you may create sub-directories (folders within your project directory) for 
+**scripts/notebooks**, **raw data**, **processed data**, **results** and
+**figures**. These may vary depending on the exact nature of your project.
+
+Importantly, it is good practice to follow the standard R naming nomenclature 
+when we name our sub-directories. This means avoiding the use of spaces and 
+instead using `_` or `-`.
+
+
+```{r}
+tabl4 <- data.frame("Sub-directory" = c("raw_data", "processed_data", 
+                                        "results", "figures", "scripts"),
+                    "Description" = c("Store raw data sets",
+                                      "Store data generated via processing of R data - intermediate files",
+                                      "Store final results files",
+                                      "Store figures generated via code during the processing and analysis of data",
+                                      "Store R scripts or notebooks, and potentially a separate folder for functions"))
+
+
+  
+  
+knitr::kable(tabl4, 
+             col.names = c("Sub-directory", "Description"),
+             caption = "A typical working directory structure")
+```
+
+
+For this course, we will use a `raw_data` folder for our raw files, a `processed_data`
+folder for our intermediate processed files, and a `figures` folder for any 
+figures that we generate. The aim of generating this organised file structure is
+two-fold: 
+
+1. to help ourselves and others to understand what the project is about, what data was used, what analyses were run
+2. to help ourselves and others to repeat the analysis over again and gain the same result
+
+
+**Challenge**
+If you have not done so already, create an R project in a suitable location on
+your device. Navigate to the `Files` tab on the right of the screen and use the
+`New Folder` button to add the three required sub-directories to your working
+directory.
