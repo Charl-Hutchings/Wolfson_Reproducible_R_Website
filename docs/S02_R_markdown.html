@@ -359,10 +359,13 @@ $(document).ready(function () {
       <a href="./S01_R_projects.html">R Projects</a>
     </li>
     <li>
-      <a href="./S02_R_markdown.html">R Markdown</a>
+      <a href="./S02_R_markdown.html">R Markdown Basics</a>
     </li>
     <li>
-      <a href="./S03_clean_reproducible_coding.html">Clean coding</a>
+      <a href="./S03_advanced_markdown.html">Advanced R Markdown</a>
+    </li>
+    <li>
+      <a href="./S04_clean_reproducible_coding.html">Clean coding</a>
     </li>
   </ul>
 </li>
@@ -631,6 +634,24 @@ Solution
 <div id="images-in-r-markdown" class="section level2">
 <h2>Images in R Markdown</h2>
 <p>As with tables, there are several ways in which we can add images into our final rendered document.</p>
+<div id="using-standard-markdown-syntax-1" class="section level4">
+<h4>Using standard markdown syntax</h4>
+<p>Again, we can use a standard markdown syntax. To insert an image this looks like <code>![Figure caption](path to image)</code>. <br></p>
+<p>For example, <code>![RNA sequencing method](images/transcriptomics.jpeg)</code> will be rendered as: <br></p>
+<div class="figure">
+<img src="images/transcriptomics.jpeg" alt="" />
+<p class="caption">RNA sequencing method</p>
+</div>
+<p><br></p>
+</div>
+<div id="using-knitr-1" class="section level4">
+<h4>Using <code>knitr</code></h4>
+<p>We can also use another <code>knitr</code> function called <code>include_graphics</code>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;images/transcriptomics.jpeg&quot;</span>)</span></code></pre></div>
+<p><img src="images/transcriptomics.jpeg" /><!-- --></p>
+<p><br></p>
+<p>This second method has the advantage of being more flexible and providing easier routes to change the image formating e.g., size, alignment, caption. We will come across some of these later.</p>
+</div>
 </div>
 </div>
 

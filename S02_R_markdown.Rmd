@@ -356,3 +356,32 @@ is based on data that you are working with.
 
 As with tables, there are several ways in which we can add images into our
 final rendered document.
+
+
+#### Using standard markdown syntax
+
+Again, we can use a standard markdown syntax. To insert an image this looks like
+`![Figure caption](path to image)`.
+<br>
+
+For example, `![RNA sequencing method](images/transcriptomics.jpeg)` will be
+rendered as:
+<br>
+
+![RNA sequencing method](images/transcriptomics.jpeg)
+
+<br>
+
+#### Using `knitr`
+
+We can also use another `knitr` function called `include_graphics`.
+
+```{r}
+knitr::include_graphics("images/transcriptomics.jpeg")
+```
+
+<br>
+
+This second method has the advantage of being more flexible and providing easier
+routes to change the image formating e.g., size, alignment, caption. We will 
+come across some of these later.

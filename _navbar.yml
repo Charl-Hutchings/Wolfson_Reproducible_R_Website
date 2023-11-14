@@ -12,10 +12,12 @@ left:
     menu:
        - text: "R Projects"
          href: ./S01_R_projects.html
-       - text: "R Markdown"
+       - text: "R Markdown Basics"
          href: ./S02_R_markdown.html
+       - text: "Advanced R Markdown"
+         href: ./S03_advanced_markdown.html
        - text: "Clean coding"
-         href: ./S03_clean_reproducible_coding.html
+         href: ./S04_clean_reproducible_coding.html
   - text: "Contact"
     href: ./contact.html
 right:
