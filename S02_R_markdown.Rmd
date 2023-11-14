@@ -1,5 +1,5 @@
 ---
-title: "Lesson 2: RMarkdown Basics"
+title: "Lesson 2: R Markdown Basics"
 output: 
   html_document:
     toc: FALSE
@@ -163,6 +163,7 @@ subheadings are essential for clear writing. In Markdown headings are created
 using the `#` operator. The more `#` operators in a row, the smaller the 
 heading appears in our rendered document.
 <br>
+<br>
 `# Heading 1 - biggest` creates:
 
 # Heading 1 - biggest
@@ -182,7 +183,7 @@ heading appears in our rendered document.
 
 #### Heading 4 - smallest
 <br>
-<br>
+
 
 ### Inline text formating
 
@@ -206,10 +207,12 @@ on the line you wish to be empty and press `enter` again.
 `<br>`
 <br>
 `some more writing.`
+<br>
 
+This will render as:
+<br>
 
 Some writing.  
-<br>
 <br>
 Some more writing.
 <br>
@@ -250,7 +253,7 @@ We can also create subpoints in both types of list by using the `+` operator:
 **Challenge: Using R Markdown syntax**  
 Create a `.html` file that look like this: 
 
-```{r, echo = FALSE, fig.align = "center", out.width = "80%"}
+```{r, echo = FALSE, fig.align = "center", out.width = "100%"}
 knitr::include_graphics("images/html_challenge_1.png")
 ```
 <br>
@@ -258,22 +261,98 @@ knitr::include_graphics("images/html_challenge_1.png")
 <details>  
 <summary>Solution</summary> 
 <br>
+In R Markdown this would look like: 
 
-## Experimental Outline
+```{r, echo = FALSE}
+knitr::include_graphics("images/html_solution_1.png")
+```
 
-This study is published in Blackmore *et al* (2017), *The effect of upper-respiratory
-infection on transcriptomic changes in the CNS*.  
-`<br>`
-Briefly, mice were treated with either:
-
-1. Influenza A virus
-2. Control saline solution
-`<br>`
-
-At 0, 4 and 8 days post-treatment, samples were taked from the **cerebellum**
-and **spinal cord tissues** and gene expression in these tissues was measured.
 
 </details>
 <br>
+<br>
+
+There are still lots more things that we can do in R Markdown.
 
 ***
+
+## Tables in R Markdown
+
+There are several ways in which we can create a table in R Markdown. 
+
+#### Using standard markdown syntax
+The first way is to use the `|` and `-` operators to create table.  
+<br>
+
+```{r, eval = FALSE}
+| Column 1 | Column 2 |
+| -------- | ---------|
+| Data 1a  | Data 2a  |
+| Data 1b  | Data 2b  |
+```
+
+<br> 
+This is rendered as:
+<br>
+
+| Column 1 | Column 2 |
+| -------- | ---------|
+| Data 1a  | Data 2a  |
+| Data 1b  | Data 2b  |
+<br>
+
+To make the table look neater we can align the columns using the following 
+syntax:
+
+```{r, eval = FALSE}
+| Left align | Center align | Right align |
+| :--------- | :----------: | ----------: |
+| Data 1a    | Data 2a      | Data 3a     |
+| Data 1b    | Data 2b      | Data 3b     |
+```
+
+Now the table is rendered as:
+<br>
+
+| Left align | Center align | Right align |
+| :--------- | :----------: | ----------: |
+| Data 1a    | Data 2a      | Data 3a     |
+| Data 1b    | Data 2b      | Data 3b     |
+
+<br>
+
+#### Using `knitr`
+
+The `knitr` package within R hosts functions that can help us produce aesthetic
+and dynamic reports. The package contains a function called `kable` which allows
+for simple knitting of a table from a standard R `data.frame` structure. 
+<br>
+
+We create a `data.frame` first and assign it to an object.
+
+```{r}
+table <- data.frame("Column 1" = c("Data 1a", "Data 1b"),
+                    "Column 2" = c("Data 2a", "Data 2b"))
+```
+
+When we execute this code (which is also done automatically when we knit the
+document) a `data.frame` object is created in our RStudio environment. We can
+pass this object to the `kable` function.
+
+```{r}
+knitr::kable(table,
+             col.names = c("Column 1", "Column 2"),
+             caption = "Creating a table with knitr::kable()")
+```
+<br>
+
+This second approach is particularly useful if the table that you wish to render
+is based on data that you are working with.
+<br>
+
+***
+
+## Images in R Markdown
+
+As with tables, there are several ways in which we can add images into our
+final rendered document.

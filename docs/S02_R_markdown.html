@@ -11,7 +11,7 @@
 
 
 
-<title>Lesson 2: RMarkdown Basics</title>
+<title>Lesson 2: R Markdown Basics</title>
 
 <script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -44,6 +44,107 @@
 
 
 
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  { color: #cccccc; background-color: #303030; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ffcfaf; } /* Alert */
+code span.an { color: #7f9f7f; font-weight: bold; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bn { color: #dca3a3; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #f0dfaf; } /* ControlFlow */
+code span.ch { color: #dca3a3; } /* Char */
+code span.cn { color: #dca3a3; font-weight: bold; } /* Constant */
+code span.co { color: #7f9f7f; } /* Comment */
+code span.cv { color: #7f9f7f; font-weight: bold; } /* CommentVar */
+code span.do { color: #7f9f7f; } /* Documentation */
+code span.dt { color: #dfdfbf; } /* DataType */
+code span.dv { color: #dcdccc; } /* DecVal */
+code span.er { color: #c3bf9f; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #c0bed1; } /* Float */
+code span.fu { color: #efef8f; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #7f9f7f; font-weight: bold; } /* Information */
+code span.kw { color: #f0dfaf; } /* Keyword */
+code span.op { color: #f0efd0; } /* Operator */
+code span.ot { color: #efef8f; } /* Other */
+code span.pp { color: #ffcfaf; font-weight: bold; } /* Preprocessor */
+code span.sc { color: #dca3a3; } /* SpecialChar */
+code span.ss { color: #cc9393; } /* SpecialString */
+code span.st { color: #cc9393; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #cc9393; } /* VerbatimString */
+code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
 
 
 
@@ -285,7 +386,7 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Lesson 2: RMarkdown Basics</h1>
+<h1 class="title toc-ignore">Lesson 2: R Markdown Basics</h1>
 
 </div>
 
@@ -358,7 +459,7 @@ Solution
 <p>The main body of text in an R Markdown file is written in Markdown syntax. There are a lot of things that we can do with Markdown syntax, far more than can be covered in this workshop. We will cover the key aspects of Markdown which you are most likely to want to use. <br> <br></p>
 <div id="headings" class="section level3">
 <h3>Headings</h3>
-<p>For all forms of report, whether it be <code>.pdf</code> or a website, headings and subheadings are essential for clear writing. In Markdown headings are created using the <code>#</code> operator. The more <code>#</code> operators in a row, the smaller the heading appears in our rendered document. <br> <code># Heading 1 - biggest</code> creates:</p>
+<p>For all forms of report, whether it be <code>.pdf</code> or a website, headings and subheadings are essential for clear writing. In Markdown headings are created using the <code>#</code> operator. The more <code>#</code> operators in a row, the smaller the heading appears in our rendered document. <br> <br> <code># Heading 1 - biggest</code> creates:</p>
 </div>
 </div>
 <div id="heading-1---biggest" class="section level1">
@@ -375,7 +476,7 @@ Solution
 <p><code>#### Heading 4 - smallest</code> creates:</p>
 <div id="heading-4---smallest" class="section level4">
 <h4>Heading 4 - smallest</h4>
-<p><br> <br></p>
+<p><br></p>
 </div>
 </div>
 <div id="inline-text-formating" class="section level3">
@@ -388,9 +489,10 @@ To make test <sub>subscript</sub> use <code>~tilde~</code> To format text to loo
 <div id="line-breaks" class="section level3">
 <h3>Line breaks</h3>
 <p>To create a line break, put two or more spaces at the end of a sentence before pressing <code>enter</code>. This will ensure that the text starts on a new line. If you want an additional blank line before the next text, then use the <code>&lt;br&gt;</code> syntax on the line you wish to be empty and press <code>enter</code> again.</p>
-<p><code>some writing</code> <br> <code>&lt;br&gt;</code> <br> <code>some more writing.</code></p>
+<p><code>some writing</code> <br> <code>&lt;br&gt;</code> <br> <code>some more writing.</code> <br></p>
+<p>This will render as: <br></p>
 <p>Some writing.<br />
-<br> <br> Some more writing. <br> <br></p>
+<br> Some more writing. <br> <br></p>
 <p>Another option is to start a new line and use three asterisks (<code>***</code>) to insert a divider. <br> <br></p>
 </div>
 <div id="lists---bulluted-and-numbered" class="section level3">
@@ -419,26 +521,116 @@ To make test <sub>subscript</sub> use <code>~tilde~</code> To format text to loo
 </ol>
 <p><strong>Challenge: Using R Markdown syntax</strong><br />
 Create a <code>.html</code> file that look like this:</p>
-<p><img src="images/html_challenge_1.png" width="80%" style="display: block; margin: auto;" /> <br></p>
+<p><img src="images/html_challenge_1.png" width="100%" style="display: block; margin: auto;" /> <br></p>
 <details>
 <summary>
 Solution
 </summary>
-<p><br></p>
-</div>
-</div>
-<div id="experimental-outline" class="section level2">
-<h2>Experimental Outline</h2>
-<p>This study is published in Blackmore <em>et al</em> (2017), <em>The effect of upper-respiratory infection on transcriptomic changes in the CNS</em>.<br />
-<code>&lt;br&gt;</code> Briefly, mice were treated with either:</p>
-<ol style="list-style-type: decimal">
-<li>Influenza A virus</li>
-<li>Control saline solution <code>&lt;br&gt;</code></li>
-</ol>
-<p>At 0, 4 and 8 days post-treatment, samples were taked from the <strong>cerebellum</strong> and <strong>spinal cord tissues</strong> and gene expression in these tissues was measured.</p>
+<p><br> In R Markdown this would look like:</p>
+<p><img src="images/html_solution_1.png" width="645" /></p>
 </details>
-<p><br></p>
+<p><br> <br></p>
+<p>There are still lots more things that we can do in R Markdown.</p>
 <hr />
+</div>
+</div>
+<div id="tables-in-r-markdown" class="section level2">
+<h2>Tables in R Markdown</h2>
+<p>There are several ways in which we can create a table in R Markdown.</p>
+<div id="using-standard-markdown-syntax" class="section level4">
+<h4>Using standard markdown syntax</h4>
+<p>The first way is to use the <code>|</code> and <code>-</code> operators to create table.<br />
+<br></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="sc">|</span> Column <span class="dv">1</span> <span class="sc">|</span> Column <span class="dv">2</span> <span class="sc">|</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="er">|</span> <span class="sc">--------</span> <span class="er">|</span> <span class="sc">---------</span><span class="er">|</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="er">|</span> Data 1a  <span class="sc">|</span> Data 2a  <span class="sc">|</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="er">|</span> Data 1b  <span class="sc">|</span> Data 2b  <span class="sc">|</span></span></code></pre></div>
+<p><br> This is rendered as: <br></p>
+<table>
+<thead>
+<tr class="header">
+<th>Column 1</th>
+<th>Column 2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Data 1a</td>
+<td>Data 2a</td>
+</tr>
+<tr class="even">
+<td>Data 1b</td>
+<td>Data 2b</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p>To make the table look neater we can align the columns using the following syntax:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="sc">|</span> Left align <span class="sc">|</span> Center align <span class="sc">|</span> Right align <span class="sc">|</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="er">|</span> <span class="er">:</span><span class="sc">---------</span> <span class="er">|</span> <span class="er">:</span><span class="sc">----------</span><span class="er">:</span> <span class="er">|</span> <span class="sc">----------</span><span class="er">:</span> <span class="er">|</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="er">|</span> Data 1a    <span class="sc">|</span> Data 2a      <span class="sc">|</span> Data 3a     <span class="sc">|</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="er">|</span> Data 1b    <span class="sc">|</span> Data 2b      <span class="sc">|</span> Data 3b     <span class="sc">|</span></span></code></pre></div>
+<p>Now the table is rendered as: <br></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Left align</th>
+<th align="center">Center align</th>
+<th align="right">Right align</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Data 1a</td>
+<td align="center">Data 2a</td>
+<td align="right">Data 3a</td>
+</tr>
+<tr class="even">
+<td align="left">Data 1b</td>
+<td align="center">Data 2b</td>
+<td align="right">Data 3b</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+</div>
+<div id="using-knitr" class="section level4">
+<h4>Using <code>knitr</code></h4>
+<p>The <code>knitr</code> package within R hosts functions that can help us produce aesthetic and dynamic reports. The package contains a function called <code>kable</code> which allows for simple knitting of a table from a standard R <code>data.frame</code> structure. <br></p>
+<p>We create a <code>data.frame</code> first and assign it to an object.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>table <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="st">&quot;Column 1&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Data 1a&quot;</span>, <span class="st">&quot;Data 1b&quot;</span>),</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;Column 2&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Data 2a&quot;</span>, <span class="st">&quot;Data 2b&quot;</span>))</span></code></pre></div>
+<p>When we execute this code (which is also done automatically when we knit the document) a <code>data.frame</code> object is created in our RStudio environment. We can pass this object to the <code>kable</code> function.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(table,</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">&quot;Column 1&quot;</span>, <span class="st">&quot;Column 2&quot;</span>),</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">caption =</span> <span class="st">&quot;Creating a table with knitr::kable()&quot;</span>)</span></code></pre></div>
+<table>
+<caption>Creating a table with knitr::kable()</caption>
+<thead>
+<tr class="header">
+<th align="left">Column 1</th>
+<th align="left">Column 2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Data 1a</td>
+<td align="left">Data 2a</td>
+</tr>
+<tr class="even">
+<td align="left">Data 1b</td>
+<td align="left">Data 2b</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p>This second approach is particularly useful if the table that you wish to render is based on data that you are working with. <br></p>
+<hr />
+</div>
+</div>
+<div id="images-in-r-markdown" class="section level2">
+<h2>Images in R Markdown</h2>
+<p>As with tables, there are several ways in which we can add images into our final rendered document.</p>
 </div>
 </div>
 
