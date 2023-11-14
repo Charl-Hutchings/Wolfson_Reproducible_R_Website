@@ -44,107 +44,6 @@
 
 
 
-<style type="text/css">
-  code {
-    white-space: pre;
-  }
-  .sourceCode {
-    overflow: visible;
-  }
-</style>
-<style type="text/css" data-origin="pandoc">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  { color: #cccccc; background-color: #303030; }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ffcfaf; } /* Alert */
-code span.an { color: #7f9f7f; font-weight: bold; } /* Annotation */
-code span.at { } /* Attribute */
-code span.bn { color: #dca3a3; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #f0dfaf; } /* ControlFlow */
-code span.ch { color: #dca3a3; } /* Char */
-code span.cn { color: #dca3a3; font-weight: bold; } /* Constant */
-code span.co { color: #7f9f7f; } /* Comment */
-code span.cv { color: #7f9f7f; font-weight: bold; } /* CommentVar */
-code span.do { color: #7f9f7f; } /* Documentation */
-code span.dt { color: #dfdfbf; } /* DataType */
-code span.dv { color: #dcdccc; } /* DecVal */
-code span.er { color: #c3bf9f; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #c0bed1; } /* Float */
-code span.fu { color: #efef8f; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #7f9f7f; font-weight: bold; } /* Information */
-code span.kw { color: #f0dfaf; } /* Keyword */
-code span.op { color: #f0efd0; } /* Operator */
-code span.ot { color: #efef8f; } /* Other */
-code span.pp { color: #ffcfaf; font-weight: bold; } /* Preprocessor */
-code span.sc { color: #dca3a3; } /* SpecialChar */
-code span.ss { color: #cc9393; } /* SpecialString */
-code span.st { color: #cc9393; } /* String */
-code span.va { } /* Variable */
-code span.vs { color: #cc9393; } /* VerbatimString */
-code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
-
-</style>
-<script>
-// apply pandoc div.sourceCode style to pre.sourceCode instead
-(function() {
-  var sheets = document.styleSheets;
-  for (var i = 0; i < sheets.length; i++) {
-    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
-    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
-    var j = 0;
-    while (j < rules.length) {
-      var rule = rules[j];
-      // check if there is a div.sourceCode rule
-      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
-        j++;
-        continue;
-      }
-      var style = rule.style.cssText;
-      // check if color or background-color is set
-      if (rule.style.color === '' && rule.style.backgroundColor === '') {
-        j++;
-        continue;
-      }
-      // replace div.sourceCode by a pre.sourceCode rule
-      sheets[i].deleteRule(j);
-      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
-    }
-  }
-})();
-</script>
 
 
 
@@ -415,18 +314,18 @@ pre {
 <div id="r-markdown-files" class="section level2">
 <h2>R Markdown files</h2>
 <p>The term R Markdown can be used to refer to two seperate concepts: (1) a file type and (2) a writing style / language.</p>
-<p>The <strong>R Markdown file</strong> is a document which contains a mixture of text and code. The document contains three key features - a header, some text (written in the markdown language) and code chunks. This document can be <strong><em>rendered</em></strong> into various outputs including word documents, pdf files and websites. The final output will not only contain text and code, but also the resulting output of any executed code e.g., figures and tables.</p>
+<p>The <strong>R Markdown file</strong> is a document which contains a mixture of text and code. The document contains three key features - a header, some text (written in the markdown language) and code chunks. This document can be <em>rendered</em> into various outputs including word documents, pdf files and websites. The final output will not only contain text and code, but also the resulting output of any executed code e.g., figures and tables.</p>
 <p>The <strong>R Markdown language</strong> refers to the specific way in which we can write and format text within an R Markdown document. We will cover key aspects of this language throughout the workshop.</p>
 <p><br> <br></p>
 <div id="header" class="section level3">
 <h3>Header</h3>
-<p>The header of an R Markdown document is written in YAML format (another language, but this is not important). This section is optional but also very important in determining what the rendered output of an R Markdown file will look like. For example, the header contains information such as the document title, author and date. It is also the place where we can specify the document type to render to (e.g., <code>.html</code>, <code>.pdf</code> or <code>.doc</code>) and whether we want any table of cotents in the output. We will see several of these options throughout the course.</p>
-<p><img src="images/markdown_header.png" width="80%" style="display: block; margin: auto;" /> <br></p>
+<p>The header of an R Markdown document is written in YAML format (another language, but this is not important). This section is optional but also very important in determining what the rendered output of an R Markdown file will look like. For example, the header contains information such as the document title, author and date. It is also the place where we can specify the document type to render to (e.g., <code>.html</code>, <code>.pdf</code> or <code>.doc</code>) and whether we want any table of cotents in the output. We will see several of these options throughout the course. <br></p>
+<p><img src="images/markdown_header.png" width="60%" style="display: block; margin: auto;" /> <br> <br></p>
 </div>
 <div id="markdown" class="section level3">
 <h3>Markdown</h3>
 <p>The Markdown refers to all text that is written in the main body of the R Markdown document. Unlike when using R scripts, we do not have to use the <code>#</code> operator to comment out our text. In R Markdown files, all text will be seen as text not code, only text within code chunks (see below) is treated as code.</p>
-<p>Within the Markdown language there are additional ways to format text e.g., inclusion of headings and sub-headings, bullet point and numbered lists, bold and italic fonts etc. We will come across how to achieve these style features throughout the workshop. <br></p>
+<p>Within the Markdown language there are additional ways to format text e.g., inclusion of headings and sub-headings, bullet point and numbered lists, bold and italic fonts etc. We will come across how to achieve these style features throughout the workshop. <br> <br></p>
 </div>
 <div id="code-chunks" class="section level3">
 <h3>Code chunks</h3>
@@ -446,10 +345,9 @@ Solution
 <p><img src="images/new_markdown_window.png" width="80%" style="display: block; margin: auto;" /></p>
 <p>In the top box we can assign the name of our document. This does not have to be the same as the title we will give it in the header of the R Markdown file. You can call the document anything you like.</p>
 <p>To specify which type of output file we would like the document to generate we make sure that the <code>HTML</code> box is selected. This does not mean that we are bound to this decision and can only render to <code>.html</code>, this is just the default that will happen if we click the <code>knit</code> button at the top of the window. If we later want to render the document to a <code>.pdf</code> or otherwise, these options still exist in the drop-down from <code>knit</code>.</p>
-<p><img src="images/knit_button.png" width="80%" style="display: block; margin: auto auto auto 0;" /></p>
-<p><img src="images/knit_options.png" width="80%" style="display: block; margin: auto auto auto 0;" /></p>
+<p><img src="images/knit_button.png" width="20%" style="display: block; margin: auto auto auto 0;" /></p>
+<p><img src="images/knit_options.png" width="20%" style="display: block; margin: auto auto auto 0;" /></p>
 <p>Finally, we can add our title to the header at the top of our page.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;images/solution_header.png&quot;</span>)</span></code></pre></div>
 <p><img src="images/solution_header.png" width="622" /></p>
 </details>
 <p><br></p>
@@ -458,35 +356,26 @@ Solution
 </div>
 <div id="markdown-syntax" class="section level2">
 <h2>Markdown syntax</h2>
-<p>The main body of text in an R Markdown file is written in Markdown syntax. There are a lot of things that we can do with Markdown syntax, far more than can be covered in this workshop. We will cover the key aspects of Markdown which you are most likely to want to use.</p>
+<p>The main body of text in an R Markdown file is written in Markdown syntax. There are a lot of things that we can do with Markdown syntax, far more than can be covered in this workshop. We will cover the key aspects of Markdown which you are most likely to want to use. <br> <br></p>
 <div id="headings" class="section level3">
 <h3>Headings</h3>
-<p>For all forms of report, whether it be <code>.pdf</code> or a website, headings and subheadings are essential for clear writing. In Markdown headings are created using the <code>#</code> operator. The more <code>#</code> operators in a row, the smaller the heading appears in our rendered document.</p>
-</div>
-</div>
-<div id="heading-1---biggest" class="section level1">
-<h1>Heading 1 - biggest</h1>
-<div id="heading-2---still-big" class="section level2">
-<h2>Heading 2 - still big</h2>
-<div id="heading-3---smaller" class="section level3">
-<h3>Heading 3 - smaller</h3>
-<div id="heading-4---smallest" class="section level4">
-<h4>Heading 4 - smallest</h4>
-</div>
+<p>For all forms of report, whether it be <code>.pdf</code> or a website, headings and subheadings are essential for clear writing. In Markdown headings are created using the <code>#</code> operator. The more <code>#</code> operators in a row, the smaller the heading appears in our rendered document. <code># Heading 1 - biggest</code> # Heading 1 - biggest <br></p>
+<p><code>## Heading 2 - still big</code> ## Heading 2 - still big <br></p>
+<p><code>### Heading 3 - smaller</code> ### Heading 3 - smaller <br></p>
+<p><code>#### Heading 4 - smallest</code> #### Heading 4 - smallest <br></p>
 </div>
 <div id="inline-text-formating" class="section level3">
 <h3>Inline text formating</h3>
 <p>To make text <strong>bold</strong> use <code>**double asterisks**</code> or <code>**__double underscores__**</code><br />
 To make test italic use <code>*single asterisks*</code> or <code>_single underscore_</code><br />
 To make text <sup>superscript</sup> use <code>^caret^</code><br />
-To make test <sub>subscript</sub> use <code>~tilde~</code> To format text to look like code use <code>backticks</code></p>
+To make test <sub>subscript</sub> use <code>~tilde~</code> To format text to look like code use <code>backticks</code> <br></p>
 </div>
 <div id="line-breaks" class="section level3">
 <h3>Line breaks</h3>
 <p>To create a line break, put two or more spaces at the end of a sentence before pressing <code>enter</code>. This will ensure that the text starts on a new line. If you want an additional blank line before the next text, then use the <code>&lt;br&gt;</code> syntax on the line you wish to be empty and press <code>enter</code> again.</p>
 <p>Some writing.<br />
-<code>&lt;br&gt;</code> <br> Some more writing.</p>
-</div>
+<code>&lt;br&gt;</code> <br> <br> Some more writing.</p>
 </div>
 </div>
 

@@ -453,20 +453,6 @@ pre {
 <h3>Organising your working directory</h3>
 <p>It is best to use a consistent folder structure across all of your projects as this will make it easier to find and file things in the future. In general, you may create sub-directories (folders within your project directory) for <strong>scripts/notebooks</strong>, <strong>raw data</strong>, <strong>processed data</strong>, <strong>results</strong> and <strong>figures</strong>. These may vary depending on the exact nature of your project.</p>
 <p>Importantly, it is good practice to follow the standard R naming nomenclature when we name our sub-directories. This means avoiding the use of spaces and instead using <code>_</code> or <code>-</code>. <br></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>tabl4 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="st">&quot;Sub-directory&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;raw_data&quot;</span>, <span class="st">&quot;processed_data&quot;</span>, </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">&quot;results&quot;</span>, <span class="st">&quot;figures&quot;</span>, <span class="st">&quot;scripts&quot;</span>),</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;Description&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Store raw data sets&quot;</span>,</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                                      <span class="st">&quot;Store data generated via processing of R data - intermediate files&quot;</span>,</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>                                      <span class="st">&quot;Store final results files&quot;</span>,</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>                                      <span class="st">&quot;Store figures generated via code during the processing and analysis of data&quot;</span>,</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>                                      <span class="st">&quot;Store R scripts or notebooks, and potentially a separate folder for functions&quot;</span>))</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(tabl4, </span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>             <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">&quot;Sub-directory&quot;</span>, <span class="st">&quot;Description&quot;</span>),</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>             <span class="at">caption =</span> <span class="st">&quot;A typical working directory structure&quot;</span>)</span></code></pre></div>
 <table>
 <caption>A typical working directory structure</caption>
 <colgroup>
@@ -506,7 +492,7 @@ pre {
 <p>For this course, we will use a <code>raw_data</code> folder for our raw files, a <code>processed_data</code> folder for our intermediate processed files, and a <code>figures</code> folder for any figures that we generate. We will also have a <code>scripts</code> folder to store any scripts or R Markdown files that we create. The aim of generating this organised file structure is two-fold:</p>
 <ol style="list-style-type: decimal">
 <li>to help ourselves and others to understand what the project is about, what data was used, what analyses were run</li>
-<li>to help ourselves and others to repeat the analysis over again and gain the same result <br></li>
+<li>to help ourselves and others to repeat the analysis over again and gain the same result <br> <br></li>
 </ol>
 <p><strong>Challenge</strong><br />
 If you have not done so already, create an R project in a suitable location on your device. Navigate to the <code>Files</code> tab on the right of the screen and use the <code>New Folder</code> button to add the three required sub-directories to your working directory.</p>

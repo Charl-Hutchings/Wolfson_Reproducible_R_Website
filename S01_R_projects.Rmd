@@ -136,7 +136,7 @@ when we name our sub-directories. This means avoiding the use of spaces and
 instead using `_` or `-`.
 <br>
 
-```{r}
+```{r, echo = FALSE}
 tabl4 <- data.frame("Sub-directory" = c("raw_data", "processed_data", 
                                         "results", "figures", "scripts"),
                     "Description" = c("Store raw data sets",
@@ -162,6 +162,7 @@ file structure is two-fold:
 
 1. to help ourselves and others to understand what the project is about, what data was used, what analyses were run
 2. to help ourselves and others to repeat the analysis over again and gain the same result
+<br>
 <br>
 
 **Challenge**  
