@@ -1,5 +1,5 @@
 ---
-title: "Lesson 2: Writing RMarkdown"
+title: "Lesson 2: RMarkdown Basics"
 output: 
   html_document:
     toc: FALSE
@@ -20,7 +20,7 @@ pre {
 
 Objectives:
 
-* Create an R Notebook file and be aware of its three main components: header, markdown and code chunks
+* Create an R Markdown file and be aware of its three main components: header, markdown and code chunks
 * Be able to create and execute code chunks 
 * Know the syntax for basic R Markdown: headings, text links, lists, text formating etc.
 * Insert images and tables using `knitr`
@@ -44,11 +44,6 @@ any executed code e.g., figures and tables.
 The **R Markdown language** refers to the specific way in which we can write 
 and format text within an R Markdown document. We will cover key aspects of this
 language throughout the workshop. 
-
-
-```{r, echo = FALSE, fig.align = "center", out.width = "80%"}
-# picture of R markdown document
-```
 <br>
 <br>
 
@@ -167,22 +162,27 @@ For all forms of report, whether it be `.pdf` or a website, headings and
 subheadings are essential for clear writing. In Markdown headings are created
 using the `#` operator. The more `#` operators in a row, the smaller the 
 heading appears in our rendered document.
-`# Heading 1 - biggest`
+<br>
+`# Heading 1 - biggest` creates:
+
 # Heading 1 - biggest
 <br>
 
-`## Heading 2 - still big`
+`## Heading 2 - still big` creates:
+
 ## Heading 2 - still big
 <br>
 
-`### Heading 3 - smaller`
+`### Heading 3 - smaller` creates:
+
 ### Heading 3 - smaller
 <br>
 
-`#### Heading 4 - smallest`
+`#### Heading 4 - smallest` creates:
+
 #### Heading 4 - smallest
 <br>
-
+<br>
 
 ### Inline text formating
 
@@ -192,6 +192,7 @@ To make text ^superscript^ use `^caret^`
 To make test ~subscript~ use `~tilde~`
 To format text to look like code use ``backticks``
 <br>
+<br>
 
 ### Line breaks
 
@@ -200,8 +201,79 @@ pressing `enter`. This will ensure that the text starts on a new line. If you
 want an additional blank line before the next text, then use the `<br>` syntax
 on the line you wish to be empty and press `enter` again.
 
+`some writing`
+<br>
+`<br>`
+<br>
+`some more writing.`
+
+
 Some writing.  
-`<br>` 
 <br>
 <br>
 Some more writing.
+<br>
+<br>
+
+Another option is to start a new line and use three asterisks (`***`) to insert
+a divider.
+<br>
+<br>
+
+### Lists - bulluted and numbered
+
+To create an unordered list we can use a single asterisk (`*`) to denote each 
+point:
+
+* Item 1
+* Item 2 
+* Item 3
+<br>
+
+To create an ordered list we can use numbers to denote each point:
+
+1. Item 1
+2. Item 2
+3. Item 3
+<br>
+
+We can also create subpoints in both types of list by using the `+` operator:
+
+1. Item 1
+    + Item 1a
+    + Item 1b
+2. Item 2
+3. Item 3
+<br>
+<br>
+
+**Challenge: Using R Markdown syntax**  
+Create a `.html` file that look like this: 
+
+```{r, echo = FALSE, fig.align = "center", out.width = "80%"}
+knitr::include_graphics("images/html_challenge_1.png")
+```
+<br>
+
+<details>  
+<summary>Solution</summary> 
+<br>
+
+## Experimental Outline
+
+This study is published in Blackmore *et al* (2017), *The effect of upper-respiratory
+infection on transcriptomic changes in the CNS*.  
+`<br>`
+Briefly, mice were treated with either:
+
+1. Influenza A virus
+2. Control saline solution
+`<br>`
+
+At 0, 4 and 8 days post-treatment, samples were taked from the **cerebellum**
+and **spinal cord tissues** and gene expression in these tissues was measured.
+
+</details>
+<br>
+
+***

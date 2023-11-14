@@ -11,7 +11,7 @@
 
 
 
-<title>Lesson 2: Writing RMarkdown</title>
+<title>Lesson 2: RMarkdown Basics</title>
 
 <script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -285,7 +285,7 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Lesson 2: Writing RMarkdown</h1>
+<h1 class="title toc-ignore">Lesson 2: RMarkdown Basics</h1>
 
 </div>
 
@@ -304,7 +304,7 @@ pre {
 </style>
 <p>Objectives:</p>
 <ul>
-<li>Create an R Notebook file and be aware of its three main components: header, markdown and code chunks</li>
+<li>Create an R Markdown file and be aware of its three main components: header, markdown and code chunks</li>
 <li>Be able to create and execute code chunks</li>
 <li>Know the syntax for basic R Markdown: headings, text links, lists, text formating etc.</li>
 <li>Insert images and tables using <code>knitr</code></li>
@@ -315,8 +315,7 @@ pre {
 <h2>R Markdown files</h2>
 <p>The term R Markdown can be used to refer to two seperate concepts: (1) a file type and (2) a writing style / language.</p>
 <p>The <strong>R Markdown file</strong> is a document which contains a mixture of text and code. The document contains three key features - a header, some text (written in the markdown language) and code chunks. This document can be <em>rendered</em> into various outputs including word documents, pdf files and websites. The final output will not only contain text and code, but also the resulting output of any executed code e.g., figures and tables.</p>
-<p>The <strong>R Markdown language</strong> refers to the specific way in which we can write and format text within an R Markdown document. We will cover key aspects of this language throughout the workshop.</p>
-<p><br> <br></p>
+<p>The <strong>R Markdown language</strong> refers to the specific way in which we can write and format text within an R Markdown document. We will cover key aspects of this language throughout the workshop. <br> <br></p>
 <div id="header" class="section level3">
 <h3>Header</h3>
 <p>The header of an R Markdown document is written in YAML format (another language, but this is not important). This section is optional but also very important in determining what the rendered output of an R Markdown file will look like. For example, the header contains information such as the document title, author and date. It is also the place where we can specify the document type to render to (e.g., <code>.html</code>, <code>.pdf</code> or <code>.doc</code>) and whether we want any table of cotents in the output. We will see several of these options throughout the course. <br></p>
@@ -359,23 +358,87 @@ Solution
 <p>The main body of text in an R Markdown file is written in Markdown syntax. There are a lot of things that we can do with Markdown syntax, far more than can be covered in this workshop. We will cover the key aspects of Markdown which you are most likely to want to use. <br> <br></p>
 <div id="headings" class="section level3">
 <h3>Headings</h3>
-<p>For all forms of report, whether it be <code>.pdf</code> or a website, headings and subheadings are essential for clear writing. In Markdown headings are created using the <code>#</code> operator. The more <code>#</code> operators in a row, the smaller the heading appears in our rendered document. <code># Heading 1 - biggest</code> # Heading 1 - biggest <br></p>
-<p><code>## Heading 2 - still big</code> ## Heading 2 - still big <br></p>
-<p><code>### Heading 3 - smaller</code> ### Heading 3 - smaller <br></p>
-<p><code>#### Heading 4 - smallest</code> #### Heading 4 - smallest <br></p>
+<p>For all forms of report, whether it be <code>.pdf</code> or a website, headings and subheadings are essential for clear writing. In Markdown headings are created using the <code>#</code> operator. The more <code>#</code> operators in a row, the smaller the heading appears in our rendered document. <br> <code># Heading 1 - biggest</code> creates:</p>
+</div>
+</div>
+<div id="heading-1---biggest" class="section level1">
+<h1>Heading 1 - biggest</h1>
+<p><br></p>
+<p><code>## Heading 2 - still big</code> creates:</p>
+<div id="heading-2---still-big" class="section level2">
+<h2>Heading 2 - still big</h2>
+<p><br></p>
+<p><code>### Heading 3 - smaller</code> creates:</p>
+<div id="heading-3---smaller" class="section level3">
+<h3>Heading 3 - smaller</h3>
+<p><br></p>
+<p><code>#### Heading 4 - smallest</code> creates:</p>
+<div id="heading-4---smallest" class="section level4">
+<h4>Heading 4 - smallest</h4>
+<p><br> <br></p>
+</div>
 </div>
 <div id="inline-text-formating" class="section level3">
 <h3>Inline text formating</h3>
 <p>To make text <strong>bold</strong> use <code>**double asterisks**</code> or <code>**__double underscores__**</code><br />
 To make test italic use <code>*single asterisks*</code> or <code>_single underscore_</code><br />
 To make text <sup>superscript</sup> use <code>^caret^</code><br />
-To make test <sub>subscript</sub> use <code>~tilde~</code> To format text to look like code use <code>backticks</code> <br></p>
+To make test <sub>subscript</sub> use <code>~tilde~</code> To format text to look like code use <code>backticks</code> <br> <br></p>
 </div>
 <div id="line-breaks" class="section level3">
 <h3>Line breaks</h3>
 <p>To create a line break, put two or more spaces at the end of a sentence before pressing <code>enter</code>. This will ensure that the text starts on a new line. If you want an additional blank line before the next text, then use the <code>&lt;br&gt;</code> syntax on the line you wish to be empty and press <code>enter</code> again.</p>
+<p><code>some writing</code> <br> <code>&lt;br&gt;</code> <br> <code>some more writing.</code></p>
 <p>Some writing.<br />
-<code>&lt;br&gt;</code> <br> <br> Some more writing.</p>
+<br> <br> Some more writing. <br> <br></p>
+<p>Another option is to start a new line and use three asterisks (<code>***</code>) to insert a divider. <br> <br></p>
+</div>
+<div id="lists---bulluted-and-numbered" class="section level3">
+<h3>Lists - bulluted and numbered</h3>
+<p>To create an unordered list we can use a single asterisk (<code>*</code>) to denote each point:</p>
+<ul>
+<li>Item 1</li>
+<li>Item 2</li>
+<li>Item 3 <br></li>
+</ul>
+<p>To create an ordered list we can use numbers to denote each point:</p>
+<ol style="list-style-type: decimal">
+<li>Item 1</li>
+<li>Item 2</li>
+<li>Item 3 <br></li>
+</ol>
+<p>We can also create subpoints in both types of list by using the <code>+</code> operator:</p>
+<ol style="list-style-type: decimal">
+<li>Item 1
+<ul>
+<li>Item 1a</li>
+<li>Item 1b</li>
+</ul></li>
+<li>Item 2</li>
+<li>Item 3 <br> <br></li>
+</ol>
+<p><strong>Challenge: Using R Markdown syntax</strong><br />
+Create a <code>.html</code> file that look like this:</p>
+<p><img src="images/html_challenge_1.png" width="80%" style="display: block; margin: auto;" /> <br></p>
+<details>
+<summary>
+Solution
+</summary>
+<p><br></p>
+</div>
+</div>
+<div id="experimental-outline" class="section level2">
+<h2>Experimental Outline</h2>
+<p>This study is published in Blackmore <em>et al</em> (2017), <em>The effect of upper-respiratory infection on transcriptomic changes in the CNS</em>.<br />
+<code>&lt;br&gt;</code> Briefly, mice were treated with either:</p>
+<ol style="list-style-type: decimal">
+<li>Influenza A virus</li>
+<li>Control saline solution <code>&lt;br&gt;</code></li>
+</ol>
+<p>At 0, 4 and 8 days post-treatment, samples were taked from the <strong>cerebellum</strong> and <strong>spinal cord tissues</strong> and gene expression in these tissues was measured.</p>
+</details>
+<p><br></p>
+<hr />
 </div>
 </div>
 

@@ -73,11 +73,11 @@ topics.
 
 ```{r, echo = FALSE}
 tabl1 <- data.frame("Session" = c("Morning", "Morning",
-                                  "Morning", "Morning", "Afternoon"),
+                                  "Morning", "Morning and Afternoon", "Afternoon"),
                     "Topic" = c("A summary of R and RStudio", 
                                 "Projects in RStudio", 
-                                "Writing in RMarkdown",
-                                "Rendering RMarkdown",
+                                "R Markdown Basics",
+                                "Advanced R Markdown",
                                 "Tips for clean coding"))
 
 knitr::kable(tabl1, 
