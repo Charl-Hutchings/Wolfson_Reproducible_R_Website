@@ -20,4 +20,4 @@ See Andreas Handel's post https://www.andreashandel.com/posts/2021-01-11-simple-
 - You can either use "Deploy from Branch" or "Github Actions" we will currently use "Deploy from Branch"
 
 # Final result
-Ta da! [https://charl-hutchings.github.io/Wolfson_Intro_R_Website](https://charl-hutchings.github.io/Wolfson_Intro_R_Website/)
+Ta da! [https://charl-hutchings.github.io/Wolfson_Reproducible_R_Website](https://charl-hutchings.github.io/Wolfson_Reproducible_R_Website/)
