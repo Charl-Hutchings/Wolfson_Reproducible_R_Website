@@ -1,8 +1,22 @@
 ---
-title: "Lesson 2: Using R Markdown"
-author: "Charlotte Hutchings"
-date: "Nov 2023"
+title: "Lesson 2: Writing RMarkdown"
+output: 
+  html_document:
+    toc: FALSE
 ---
+
+<style type="text/css">
+
+body, td {
+   font-size: 18px;
+}
+code.r{
+  font-size: 14px;
+}
+pre {
+  font-size: 14px
+}
+</style>
 
 Objectives:
 
@@ -11,3 +25,166 @@ Objectives:
 * Know the syntax for basic R Markdown: headings, text links, lists, text formating etc.
 * Insert images and tables using `knitr`
 * Convert R notebooks into `pdf`, `htlm` or word `doc` files
+
+***
+
+
+## R Markdown files
+
+The term R Markdown can be used to refer to two seperate concepts: (1) a file
+type and (2) a writing style / language. 
+
+The **R Markdown file** is a document which contains a mixture of text and code.
+The document contains three key features - a header, some text (written in the
+markdown language) and code chunks. This document can be **_rendered_** into
+various outputs including word documents, pdf files and websites. The final 
+output will not only contain text and code, but also the resulting output of 
+any executed code e.g., figures and tables. 
+
+The **R Markdown language** refers to the specific way in which we can write 
+and format text within an R Markdown document. We will cover key aspects of this
+language throughout the workshop. 
+
+
+```{r, echo = FALSE, fig.align = "center", out.width = "80%"}
+# picture of R markdown document
+```
+<br>
+<br>
+
+### Header
+
+The header of an R Markdown document is written in YAML format (another language, 
+but this is not important). This section is optional but also very important 
+in determining what the rendered output of an R Markdown file will look like.
+For example, the header contains information such as the document title, author
+and date. It is also the place where we can specify the document type to render
+to (e.g., `.html`, `.pdf` or `.doc`) and whether we want any table of cotents in
+the output. We will see several of these options throughout the course.
+
+```{r, echo = FALSE, fig.align = "center", out.width = "80%"}
+knitr::include_graphics("images/markdown_header.png")
+```
+<br>
+
+### Markdown
+
+The Markdown refers to all text that is written in the main body of the R
+Markdown document. Unlike when using R scripts, we do not have to use the `#`
+operator to comment out our text. In R Markdown files, all text will be seen 
+as text not code, only text within code chunks (see below) is treated as code.
+
+Within the Markdown language there are additional ways to format text e.g., 
+inclusion of headings and sub-headings, bullet point and numbered lists,
+bold and italic fonts etc. We will come across how to achieve these style 
+features throughout the workshop.
+<br>
+
+### Code chunks
+
+The code chunks are where we can write code. To add a new code chunk we press
+`Cmd + Option + i` on mac or `Cntrl + Alt + i` on Windows. A grey box appears
+in which we can write code. Only code within chunks (not the text part of the
+main document) can be executed. To execute a code chunk we can either use the
+standard `Control + Enter` (you can also use `Cmd + Return` if you are using a
+Mac), or we can use the buttons in the top right corner of the code chunk.
+
+* To run only the selected code chunk - click the right-most green triangle
+* To run all code chunks above (but not including) the selected code chunk - click the left grey triangle with green rectangle
+
+
+```{r, echo = FALSE, fig.align = "center", out.width = "80%"}
+knitr::include_graphics("images/code_chunk.png")
+```
+<br>
+<br>
+
+**Challenge: Starting with R Markdown**
+<br>
+Create a new R Markdown document to later be rendered to a `.html` file. Give
+this markdown the title: "Transcriptomic analysis of mice experiencing upper-
+respiratory infection". Save this file in the `scripts` folder of your project
+working directory.
+<br>
+
+<details>  
+<summary>Solution</summary> 
+<br>
+
+To create a new R Markdown file we first navigate to `File -> New File -> R Markdown...`.
+When we click this the following window should pop up.
+
+```{r, echo = FALSE, fig.align = "center", out.width = "80%"}
+knitr::include_graphics("images/new_markdown_window.png")
+```
+
+In the top box we can assign the name of our document. This does not have to 
+be the same as the title we will give it in the header of the R Markdown file.
+You can call the document anything you like. 
+
+To specify which type of output file we would like the document to generate we
+make sure that the `HTML` box is selected. This does not mean that we are 
+bound to this decision and can only render to `.html`, this is just the default
+that will happen if we click the `knit` button at the top of the window. If we
+later want to render the document to a `.pdf` or otherwise, these options still 
+exist in the drop-down from `knit`.
+
+```{r, echo = FALSE, fig.align = "left", out.width = "80%"}
+knitr::include_graphics("images/knit_button.png")
+```
+
+```{r, echo = FALSE, fig.align = "left", out.width = "80%"}
+knitr::include_graphics("images/knit_options.png")
+```
+
+Finally, we can add our title to the header at the top of our page.
+
+```{r}
+knitr::include_graphics("images/solution_header.png")
+```
+
+
+</details>
+<br>
+
+***
+
+## Markdown syntax
+
+The main body of text in an R Markdown file is written in Markdown syntax. There
+are a lot of things that we can do with Markdown syntax, far more than can be
+covered in this workshop. We will cover the key aspects of Markdown which you 
+are most likely to want to use.
+
+### Headings
+
+For all forms of report, whether it be `.pdf` or a website, headings and
+subheadings are essential for clear writing. In Markdown headings are created
+using the `#` operator. The more `#` operators in a row, the smaller the 
+heading appears in our rendered document.
+
+# Heading 1 - biggest
+## Heading 2 - still big
+### Heading 3 - smaller
+#### Heading 4 - smallest
+
+
+### Inline text formating
+
+To make text **bold** use `**double asterisks**` or `**__double underscores__**`  
+To make test italic use `*single asterisks*` or `_single underscore_`  
+To make text ^superscript^ use `^caret^`  
+To make test ~subscript~ use `~tilde~`
+To format text to look like code use ``backticks``
+
+### Line breaks
+
+To create a line break, put two or more spaces at the end of a sentence before 
+pressing `enter`. This will ensure that the text starts on a new line. If you 
+want an additional blank line before the next text, then use the `<br>` syntax
+on the line you wish to be empty and press `enter` again.
+
+Some writing.  
+`<br>` 
+<br>
+Some more writing.

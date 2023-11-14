@@ -1,32 +1,59 @@
 ---
-title: "Lesson 1: Project management using R projects"
-author: "Charlotte Hutchings"
-date: "Nov 2023"
+title: "Lesson 1: Using projects in RStudio"
+output: 
+  html_document:
+    toc: FALSE
 ---
 
+<style type="text/css">
+
+body, td {
+   font-size: 18px;
+}
+code.r{
+  font-size: 14px;
+}
+pre {
+  font-size: 14px
+}
+</style>
+
+
+*This is the course handbook for WolfWorks: Reproducible Research with R.*
+
+
+***
 Objectives:
 
 * Know how to create an R project and understand the benefits of doing so
 * Organise files and directories for an R project and understand the purpose of a working directory
 * Be aware of the different types of files that can be used in an R project
 
+***
 
-# Starting with an R Project
+
+## Starting with an R Project
 
 When using R for an extended task (e.g., all analyses relating to a project), it
 is good practice to keep all data, code, figures and results in a self-contained
 folder - a **working directory**. RStudio provides an easy way to do this 
 through its "Projects" interface.
+<br>
 
 An R Project is essentially just a working directory with an associated `.RProj`
 file. When you open a project the working directory will automatically be set
 to the working directory in which the `.RProj` file is located. 
+<br>
 
 Benefits of using an R project:
 
 * Transparency - easy to create annotated code which explains what is happening
 * Reproducibility - share projects easily using relative file paths (relative to project working directory)
 * Simplicity - keeps all files relating to an analysis in one place for easy access
+<br>
+
+
+***
 
 
 ## Creating an R Project
@@ -36,20 +63,67 @@ Benefits of using an R project:
 3. Click the `Browse...` button and select a convenient location on your system
 4. Click on `Create Project`
 5. (Optional) Set Preferences to 'Never' save workspace in RStudio:
+<br>
 
 RStudio's default preferences generally work well, but saving a workspace to a
 `.RData` file can be computationally heavy, especially if you are working with
 larger datasets as this would save all the data that is loaded into R into the 
 `.RData` file. To turn that off, go to `Tools` --> `Global Options` and select
 the 'Never' option for `Save workspace to .RData' on exit.`
+<br>
 
+***
 
 ## The working directory 
 
+Your working directory is the location on your computer where R will default to 
+when reading or writing files. You can check where your current working directory
+is by typing `getwd()` into your console and executing. 
 
 
+```{r}
+getwd()
+```
 
-## Organising your working directory
+
+You can think of your working directory as a room in which R is sat. When you 
+want R to fetch something from your computer, a data file for example, you have
+to give R a path to get to there and this path needs to start from where R 
+already is i.e., your working directory. For example, if I wanted to load the 
+"" file from within my "data" folder, I'd need to tell R to first go into "data", 
+then grab "". Hence, the relative path would look like this: 
+
+`"data/filename"`
+<br>
+
+Alternatively, if I want to access a file that is not below my working directory 
+in the file (i.e., I need to go leave the room to find another door), I can use
+`../` to mean go up one level. For example, if I wanted to access another folder
+within "repos", I would need to leave the "Wolfson_Intro_R" room (which is my 
+current working directory) and enter "repos", so my filepath would be:
+
+`"../repos"`
+<br>
+
+These are what we call **relative file paths** - the file path is given relative
+to our **working directory**. The alternative is to provide an **absolute file path**,
+which starts at the highest point in your computer system. For example, to access
+my "" file via an absolute path I would use:
+
+`"/Users/User/repos/Wolfson_Intro_R/data/filename"`
+<br>
+
+For the rest of this course we will be using relative file paths from our 
+working directory. Make sure your working directory contains a folder called 
+"Data" with the relevant files in. If you wish to change your working directory
+to the place where you have this folder, you can use `setwd()` and provide an
+absolute file path to where the directory should be.
+
+
+***
+
+
+### Organising your working directory
 
 It is best to use a consistent folder structure across all of your projects as
 this will make it easier to find and file things in the future. In general, 
@@ -60,7 +134,7 @@ you may create sub-directories (folders within your project directory) for
 Importantly, it is good practice to follow the standard R naming nomenclature 
 when we name our sub-directories. This means avoiding the use of spaces and 
 instead using `_` or `-`.
-
+<br>
 
 ```{r}
 tabl4 <- data.frame("Sub-directory" = c("raw_data", "processed_data", 
@@ -78,18 +152,19 @@ knitr::kable(tabl4,
              col.names = c("Sub-directory", "Description"),
              caption = "A typical working directory structure")
 ```
-
+<br>
 
 For this course, we will use a `raw_data` folder for our raw files, a `processed_data`
 folder for our intermediate processed files, and a `figures` folder for any 
-figures that we generate. The aim of generating this organised file structure is
-two-fold: 
+figures that we generate. We will also have a `scripts` folder to store any 
+scripts or R Markdown files that we create. The aim of generating this organised
+file structure is two-fold: 
 
 1. to help ourselves and others to understand what the project is about, what data was used, what analyses were run
 2. to help ourselves and others to repeat the analysis over again and gain the same result
+<br>
 
-
-**Challenge**
+**Challenge**  
 If you have not done so already, create an R project in a suitable location on
 your device. Navigate to the `Files` tab on the right of the screen and use the
 `New Folder` button to add the three required sub-directories to your working

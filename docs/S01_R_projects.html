@@ -9,10 +9,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Charlotte Hutchings" />
 
 
-<title>Lesson 1: Project management using R projects</title>
+<title>Lesson 1: Using projects in RStudio</title>
 
 <script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -30,9 +29,6 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
-<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet" />
@@ -314,75 +310,6 @@ $(document).ready(function () {
 
 
 
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-@media print {
-.toc-content {
-  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
-  float: right;
-}
-}
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-.tocify-subheader {
-  display: inline;
-}
-.tocify-subheader .tocify-item {
-  font-size: 0.95em;
-}
-
-</style>
-
-
 
 </head>
 
@@ -390,16 +317,6 @@ div.tocify {
 
 
 <div class="container-fluid main-container">
-
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -469,29 +386,44 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Lesson 1: Project management using R projects</h1>
-<h4 class="author">Charlotte Hutchings</h4>
-<h4 class="date">Nov 2023</h4>
+<h1 class="title toc-ignore">Lesson 1: Using projects in RStudio</h1>
 
 </div>
 
 
+<style type="text/css">
+
+body, td {
+   font-size: 18px;
+}
+code.r{
+  font-size: 14px;
+}
+pre {
+  font-size: 14px
+}
+</style>
+<p><em>This is the course handbook for WolfWorks: Reproducible Research with R.</em></p>
+<hr />
 <p>Objectives:</p>
 <ul>
 <li>Know how to create an R project and understand the benefits of doing so</li>
 <li>Organise files and directories for an R project and understand the purpose of a working directory</li>
 <li>Be aware of the different types of files that can be used in an R project</li>
 </ul>
-<div id="starting-with-an-r-project" class="section level1">
-<h1>Starting with an R Project</h1>
-<p>When using R for an extended task (e.g., all analyses relating to a project), it is good practice to keep all data, code, figures and results in a self-contained folder - a <strong>working directory</strong>. RStudio provides an easy way to do this through its “Projects” interface.</p>
-<p>An R Project is essentially just a working directory with an associated <code>.RProj</code> file. When you open a project the working directory will automatically be set to the working directory in which the <code>.RProj</code> file is located.</p>
+<hr />
+<div id="starting-with-an-r-project" class="section level2">
+<h2>Starting with an R Project</h2>
+<p>When using R for an extended task (e.g., all analyses relating to a project), it is good practice to keep all data, code, figures and results in a self-contained folder - a <strong>working directory</strong>. RStudio provides an easy way to do this through its “Projects” interface. <br></p>
+<p>An R Project is essentially just a working directory with an associated <code>.RProj</code> file. When you open a project the working directory will automatically be set to the working directory in which the <code>.RProj</code> file is located. <br></p>
 <p>Benefits of using an R project:</p>
 <ul>
 <li>Transparency - easy to create annotated code which explains what is happening</li>
 <li>Reproducibility - share projects easily using relative file paths (relative to project working directory)</li>
-<li>Simplicity - keeps all files relating to an analysis in one place for easy access</li>
+<li>Simplicity - keeps all files relating to an analysis in one place for easy access <br></li>
 </ul>
+<hr />
+</div>
 <div id="creating-an-r-project" class="section level2">
 <h2>Creating an R Project</h2>
 <ol style="list-style-type: decimal">
@@ -499,31 +431,42 @@ div.tocify {
 <li>Under the <code>File</code> menu, click on <code>New Project</code>. Choose <code>Existing Directory</code></li>
 <li>Click the <code>Browse...</code> button and select a convenient location on your system</li>
 <li>Click on <code>Create Project</code></li>
-<li>(Optional) Set Preferences to ‘Never’ save workspace in RStudio:</li>
+<li>(Optional) Set Preferences to ‘Never’ save workspace in RStudio: <br></li>
 </ol>
-<p>RStudio’s default preferences generally work well, but saving a workspace to a <code>.RData</code> file can be computationally heavy, especially if you are working with larger datasets as this would save all the data that is loaded into R into the <code>.RData</code> file. To turn that off, go to <code>Tools</code> –&gt; <code>Global Options</code> and select the ‘Never’ option for <code>Save workspace to .RData' on exit.</code></p>
+<p>RStudio’s default preferences generally work well, but saving a workspace to a <code>.RData</code> file can be computationally heavy, especially if you are working with larger datasets as this would save all the data that is loaded into R into the <code>.RData</code> file. To turn that off, go to <code>Tools</code> –&gt; <code>Global Options</code> and select the ‘Never’ option for <code>Save workspace to .RData' on exit.</code> <br></p>
+<hr />
 </div>
 <div id="the-working-directory" class="section level2">
 <h2>The working directory</h2>
-</div>
-<div id="organising-your-working-directory" class="section level2">
-<h2>Organising your working directory</h2>
+<p>Your working directory is the location on your computer where R will default to when reading or writing files. You can check where your current working directory is by typing <code>getwd()</code> into your console and executing.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;/Users/User/repos/Wolfson_Reproducible_R_Website&quot;</code></pre>
+<p>You can think of your working directory as a room in which R is sat. When you want R to fetch something from your computer, a data file for example, you have to give R a path to get to there and this path needs to start from where R already is i.e., your working directory. For example, if I wanted to load the “” file from within my “data” folder, I’d need to tell R to first go into “data”, then grab ““. Hence, the relative path would look like this:</p>
+<p><code>"data/filename"</code> <br></p>
+<p>Alternatively, if I want to access a file that is not below my working directory in the file (i.e., I need to go leave the room to find another door), I can use <code>../</code> to mean go up one level. For example, if I wanted to access another folder within “repos”, I would need to leave the “Wolfson_Intro_R” room (which is my current working directory) and enter “repos”, so my filepath would be:</p>
+<p><code>"../repos"</code> <br></p>
+<p>These are what we call <strong>relative file paths</strong> - the file path is given relative to our <strong>working directory</strong>. The alternative is to provide an <strong>absolute file path</strong>, which starts at the highest point in your computer system. For example, to access my “” file via an absolute path I would use:</p>
+<p><code>"/Users/User/repos/Wolfson_Intro_R/data/filename"</code> <br></p>
+<p>For the rest of this course we will be using relative file paths from our working directory. Make sure your working directory contains a folder called “Data” with the relevant files in. If you wish to change your working directory to the place where you have this folder, you can use <code>setwd()</code> and provide an absolute file path to where the directory should be.</p>
+<hr />
+<div id="organising-your-working-directory" class="section level3">
+<h3>Organising your working directory</h3>
 <p>It is best to use a consistent folder structure across all of your projects as this will make it easier to find and file things in the future. In general, you may create sub-directories (folders within your project directory) for <strong>scripts/notebooks</strong>, <strong>raw data</strong>, <strong>processed data</strong>, <strong>results</strong> and <strong>figures</strong>. These may vary depending on the exact nature of your project.</p>
-<p>Importantly, it is good practice to follow the standard R naming nomenclature when we name our sub-directories. This means avoiding the use of spaces and instead using <code>_</code> or <code>-</code>.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>tabl4 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="st">&quot;Sub-directory&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;raw_data&quot;</span>, <span class="st">&quot;processed_data&quot;</span>, </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">&quot;results&quot;</span>, <span class="st">&quot;figures&quot;</span>, <span class="st">&quot;scripts&quot;</span>),</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;Description&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Store raw data sets&quot;</span>,</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>                                      <span class="st">&quot;Store data generated via processing of R data - intermediate files&quot;</span>,</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>                                      <span class="st">&quot;Store final results files&quot;</span>,</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>                                      <span class="st">&quot;Store figures generated via code during the processing and analysis of data&quot;</span>,</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>                                      <span class="st">&quot;Store R scripts or notebooks, and potentially a separate folder for functions&quot;</span>))</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(tabl4, </span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>             <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">&quot;Sub-directory&quot;</span>, <span class="st">&quot;Description&quot;</span>),</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>             <span class="at">caption =</span> <span class="st">&quot;A typical working directory structure&quot;</span>)</span></code></pre></div>
+<p>Importantly, it is good practice to follow the standard R naming nomenclature when we name our sub-directories. This means avoiding the use of spaces and instead using <code>_</code> or <code>-</code>. <br></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>tabl4 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="st">&quot;Sub-directory&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;raw_data&quot;</span>, <span class="st">&quot;processed_data&quot;</span>, </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">&quot;results&quot;</span>, <span class="st">&quot;figures&quot;</span>, <span class="st">&quot;scripts&quot;</span>),</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;Description&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Store raw data sets&quot;</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                                      <span class="st">&quot;Store data generated via processing of R data - intermediate files&quot;</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>                                      <span class="st">&quot;Store final results files&quot;</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>                                      <span class="st">&quot;Store figures generated via code during the processing and analysis of data&quot;</span>,</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>                                      <span class="st">&quot;Store R scripts or notebooks, and potentially a separate folder for functions&quot;</span>))</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(tabl4, </span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>             <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">&quot;Sub-directory&quot;</span>, <span class="st">&quot;Description&quot;</span>),</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>             <span class="at">caption =</span> <span class="st">&quot;A typical working directory structure&quot;</span>)</span></code></pre></div>
 <table>
 <caption>A typical working directory structure</caption>
 <colgroup>
@@ -559,19 +502,19 @@ div.tocify {
 </tr>
 </tbody>
 </table>
-<p>For this course, we will use a <code>raw_data</code> folder for our raw files, a <code>processed_data</code> folder for our intermediate processed files, and a <code>figures</code> folder for any figures that we generate. The aim of generating this organised file structure is two-fold:</p>
+<p><br></p>
+<p>For this course, we will use a <code>raw_data</code> folder for our raw files, a <code>processed_data</code> folder for our intermediate processed files, and a <code>figures</code> folder for any figures that we generate. We will also have a <code>scripts</code> folder to store any scripts or R Markdown files that we create. The aim of generating this organised file structure is two-fold:</p>
 <ol style="list-style-type: decimal">
 <li>to help ourselves and others to understand what the project is about, what data was used, what analyses were run</li>
-<li>to help ourselves and others to repeat the analysis over again and gain the same result</li>
+<li>to help ourselves and others to repeat the analysis over again and gain the same result <br></li>
 </ol>
-<p><strong>Challenge</strong> If you have not done so already, create an R project in a suitable location on your device. Navigate to the <code>Files</code> tab on the right of the screen and use the <code>New Folder</code> button to add the three required sub-directories to your working directory.</p>
+<p><strong>Challenge</strong><br />
+If you have not done so already, create an R project in a suitable location on your device. Navigate to the <code>Files</code> tab on the right of the screen and use the <code>New Folder</code> button to add the three required sub-directories to your working directory.</p>
 </div>
 </div>
 
 
 
-</div>
-</div>
 
 </div>
 
@@ -604,35 +547,6 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
-<script>
-$(document).ready(function ()  {
-
-    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
-    $('.unlisted.unnumbered').addClass('toc-ignore')
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = false;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
