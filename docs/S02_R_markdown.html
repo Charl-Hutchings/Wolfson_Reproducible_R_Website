@@ -412,7 +412,6 @@ pre {
 <li>Be able to create and execute code chunks</li>
 <li>Know the syntax for basic R Markdown: headings, text links, lists, text formating etc.</li>
 <li>Insert images and tables using <code>knitr</code></li>
-<li>Convert R notebooks into <code>pdf</code>, <code>htlm</code> or word <code>doc</code> files</li>
 </ul>
 <hr />
 <div id="r-markdown-files" class="section level2">
@@ -639,18 +638,35 @@ Solution
 <p>Again, we can use a standard markdown syntax. To insert an image this looks like <code>![Figure caption](path to image)</code>. <br></p>
 <p>For example, <code>![RNA sequencing method](images/transcriptomics.jpeg)</code> will be rendered as: <br></p>
 <div class="figure">
-<img src="images/transcriptomics.jpeg" alt="" />
-<p class="caption">RNA sequencing method</p>
+<img src="images/Rlogo.png" alt="" />
+<p class="caption">R logo</p>
 </div>
 <p><br></p>
 </div>
 <div id="using-knitr-1" class="section level4">
 <h4>Using <code>knitr</code></h4>
 <p>We can also use another <code>knitr</code> function called <code>include_graphics</code>.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;images/transcriptomics.jpeg&quot;</span>)</span></code></pre></div>
-<p><img src="images/transcriptomics.jpeg" /><!-- --></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;images/Rlogo.png&quot;</span>)</span></code></pre></div>
+<p><img src="images/Rlogo.png" width="362" /></p>
 <p><br></p>
-<p>This second method has the advantage of being more flexible and providing easier routes to change the image formating e.g., size, alignment, caption. We will come across some of these later.</p>
+<p>This second method has the advantage of being more flexible and providing easier routes to change the image formating e.g., size, alignment, caption. We will come across some of these later. <br></p>
+<p><strong>Challenge: Adding tables and images using <code>knitr</code></strong></p>
+<p>Add to your previous <code>.html</code> document to create the following <code>.html</code>. <br></p>
+<p><img src="images/html_challenge_2.png" width="100%" style="display: block; margin: auto;" /></p>
+<details>
+<summary>
+Hint
+</summary>
+<p><br></p>
+<p>There are various ways to change the size, alignment and caption of a rendered image using <code>knitr</code>. We can include these instructions in the <strong>chunk options</strong>, which we put inside of the <code>{}</code> at the top of the code chunk. Try to use the arguments <code>fig.align</code> and <code>out.width</code>.</p>
+</details>
+<details>
+<summary>
+Solution
+</summary>
+<p><br></p>
+<p>In R Markdown this would look like:</p>
+<p><img src="images/html_solution_2.png" width="912" /> <br></p>
 </div>
 </div>
 </div>

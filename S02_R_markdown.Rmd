@@ -24,7 +24,6 @@ Objectives:
 * Be able to create and execute code chunks 
 * Know the syntax for basic R Markdown: headings, text links, lists, text formating etc.
 * Insert images and tables using `knitr`
-* Convert R notebooks into `pdf`, `htlm` or word `doc` files
 
 ***
 
@@ -368,7 +367,7 @@ For example, `![RNA sequencing method](images/transcriptomics.jpeg)` will be
 rendered as:
 <br>
 
-![RNA sequencing method](images/transcriptomics.jpeg)
+![R logo](images/Rlogo.png)
 
 <br>
 
@@ -377,7 +376,7 @@ rendered as:
 We can also use another `knitr` function called `include_graphics`.
 
 ```{r}
-knitr::include_graphics("images/transcriptomics.jpeg")
+knitr::include_graphics("images/Rlogo.png")
 ```
 
 <br>
@@ -385,3 +384,35 @@ knitr::include_graphics("images/transcriptomics.jpeg")
 This second method has the advantage of being more flexible and providing easier
 routes to change the image formating e.g., size, alignment, caption. We will 
 come across some of these later.
+<br>
+
+**Challenge: Adding tables and images using `knitr`**  
+
+Add to your previous `.html` document to create the following `.html`.
+<br>
+
+```{r, echo = FALSE, fig.align = "center", out.width = "100%"}
+knitr::include_graphics("images/html_challenge_2.png")
+```
+
+<details>  
+<summary>Hint</summary> 
+<br>
+
+There are various ways to change the size, alignment and caption of a rendered
+image using `knitr`. We can include these instructions in the **chunk options**, 
+which we put inside of the `{}` at the top of the code chunk. Try to use the
+arguments `fig.align` and `out.width`.
+
+</details>
+
+<details>  
+<summary>Solution</summary> 
+<br>
+
+In R Markdown this would look like: 
+
+```{r, echo = FALSE}
+knitr::include_graphics("images/html_solution_2.png")
+```
+<br>
