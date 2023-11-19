@@ -154,6 +154,8 @@ knitr::include_graphics("images/html_solution_4.png")
 ```
 <br>
 
+</details>
+
 ***
 
 ## Code chunk options
@@ -202,7 +204,7 @@ knitr::kable(table2,
 <br>
 
 **I want the code chunk to appear but don't want to code to be executed (i.e., no results generated or displayed)**  
-`eval = FALSE`  
+`eval = FALSE`
 <br>
 
 **I want the code chunk to appear and be executed, but no output to be displayed.**  
@@ -210,7 +212,7 @@ knitr::kable(table2,
 <br>
 
 **I don't want any code to be displayed, but I want the code to be executed and results displayed**  
-`echo = FALSE`  
+`echo = FALSE`
 <br>
 
 **I don't want want any code or results to be displayed, but I do want the code to be executed**  

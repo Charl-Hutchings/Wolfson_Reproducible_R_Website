@@ -25,3 +25,55 @@ Objectives:
 * Reduce repetition through the use of `loops` and `functions`
 
 ***
+
+## What is required for absolute reproducibility?
+
+So far in this workshop we have discussed the set-up and use of RStudio projects, 
+with a focus on how to generate various outputs (`.pdf`, `.doc`, `.html`) from
+an R Markdown document.
+<br>
+
+In addition to correctly formating our R Project, a completely **reproducible**
+analysis requires all of the information for somebody (you or otherwise) to 
+re-do your analysis and get the same results. This includes:
+
+* All raw data - saved in a file within the project directory
+* All code used to clean and process raw data as well as generate any figures - scripts should be saved in a file within the project directory
+* All code and software (specific versions and packages) for analysis - all package installation and loading steps should be outlined at the top of notebooks (even if not evaluated)
+* There should be no external "by hand" steps in the analysis
+<br>
+
+The benefits of reproducibility are:
+
+* You can work out what you did and understand why - decisions are explained
+* Even if the (raw) data is updated, the same analyses can be completed
+* You can pass your project on to others
+* You can provide useful examples of your code to people who wish to inspect or continue your project
+* When you are ready to publish it is easy to re-check the analysis
+<br>
+
+R Markdown files along with `knitr` can be used to neatly generate reports that follow each step of the analysis.
+<br>
+
+***
+
+## Style guidelines for neat coding
+
+In addition to using R Projects and Markdown files to make our research reproducible, 
+there are certain stylist aspects that make code easier to follow and read.
+<br>
+
+Why use a style guide?
+
+* Clean code is easier to read and interpret - for you and others
+* When code is clearer it is easier to spot mistakes
+* Some style guide will help prevent potential problems e.g., avoiding `.` in function names
+<br>
+
+There are several good style guides available, including [Google's R style guidelines](https://google.github.io/styleguide/Rguide.html),
+[the Tidyverse style guide](https://style.tidyverse.org), [Hadley Wickham's R style guidelines](http://adv-r.had.co.nz/Style.html),
+and [the Bioconductor styel guide](https://contributions.bioconductor.org/r-code.html).
+<br>
+
+Some key points that are shared across guides:
+

@@ -312,6 +312,39 @@ pre {
 <li>Reduce repetition through the use of <code>loops</code> and <code>functions</code></li>
 </ul>
 <hr />
+<div id="what-is-required-for-absolute-reproducibility" class="section level2">
+<h2>What is required for absolute reproducibility?</h2>
+<p>So far in this workshop we have discussed the set-up and use of RStudio projects, with a focus on how to generate various outputs (<code>.pdf</code>, <code>.doc</code>, <code>.html</code>) from an R Markdown document. <br></p>
+<p>In addition to correctly formating our R Project, a completely <strong>reproducible</strong> analysis requires all of the information for somebody (you or otherwise) to re-do your analysis and get the same results. This includes:</p>
+<ul>
+<li>All raw data - saved in a file within the project directory</li>
+<li>All code used to clean and process raw data as well as generate any figures - scripts should be saved in a file within the project directory</li>
+<li>All code and software (specific versions and packages) for analysis - all package installation and loading steps should be outlined at the top of notebooks (even if not evaluated)</li>
+<li>There should be no external “by hand” steps in the analysis <br></li>
+</ul>
+<p>The benefits of reproducibility are:</p>
+<ul>
+<li>You can work out what you did and understand why - decisions are explained</li>
+<li>Even if the (raw) data is updated, the same analyses can be completed</li>
+<li>You can pass your project on to others</li>
+<li>You can provide useful examples of your code to people who wish to inspect or continue your project</li>
+<li>When you are ready to publish it is easy to re-check the analysis <br></li>
+</ul>
+<p>R Markdown files along with <code>knitr</code> can be used to neatly generate reports that follow each step of the analysis. <br></p>
+<hr />
+</div>
+<div id="style-guidelines-for-neat-coding" class="section level2">
+<h2>Style guidelines for neat coding</h2>
+<p>In addition to using R Projects and Markdown files to make our research reproducible, there are certain stylist aspects that make code easier to follow and read. <br></p>
+<p>Why use a style guide?</p>
+<ul>
+<li>Clean code is easier to read and interpret - for you and others</li>
+<li>When code is clearer it is easier to spot mistakes</li>
+<li>Some style guide will help prevent potential problems e.g., avoiding <code>.</code> in function names <br></li>
+</ul>
+<p>There are several good style guides available, including <a href="https://google.github.io/styleguide/Rguide.html">Google’s R style guidelines</a>, <a href="https://style.tidyverse.org">the Tidyverse style guide</a>, <a href="http://adv-r.had.co.nz/Style.html">Hadley Wickham’s R style guidelines</a>, and <a href="https://contributions.bioconductor.org/r-code.html">the Bioconductor styel guide</a>. <br></p>
+<p>Some key points that are shared across guides:</p>
+</div>
 
 
 
