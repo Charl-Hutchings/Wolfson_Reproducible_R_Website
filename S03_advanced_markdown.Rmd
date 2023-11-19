@@ -32,28 +32,25 @@ Objectives:
 When using R Markdown to create academic documents, whether these be analysis
 or reports, it is common to want to include references.
 <br>
+<br>
 
 #### External references
 To do this you need to create a separate bibliography file (`.bib`) that contains
 all of the required references in a BibTeX format.
-
-<br>
 <br>
 
 Many referencing management tools will allow references to be exported in a BibTeX
 format. However, if you are struggling to access these, you can use websites
 such as [doi2bib](https://www.doi2bib.org) to generate BibTeX references from a
 doi, PMCID, or ArXiv ID.
-
-<br>
 <br>
 
 Once we have a `.bib` file saved in our working directory, we add the file path
 to our R Markdown header under `bibliography: reference_file_name.bib`. Items
 can then be referenced within the R Markdown document using the `@key` syntax,
 where the key is given in the BibTeX database. To put citations in parentheses, 
-use [@key]. To cite multiple entries, separate the keys by semicolons, e.g., 
-[@key-1; @key-2; @key-3]. To create a link from the in-text citation to the 
+use `[@key]`. To cite multiple entries, separate the keys by semicolons, e.g., 
+`[@key-1; @key-2; @key-3]`. To create a link from the in-text citation to the 
 corresponding reference in the bibliography, we add `link-citations: yes` to 
 our header.
 <br>
@@ -106,7 +103,7 @@ do so:
 <br>
 <br>
 
-```{r, echo = FALSE, out.width = "50%"}
+```{r, echo = FALSE, out.width = "80%"}
 knitr::include_graphics("images/image_referencing.png")
 ```
 <br>
@@ -130,8 +127,91 @@ example `[click here](https://www.wolfson.cam.ac.uk)` would render as:
 
 [click here](https://www.wolfson.cam.ac.uk)
 <br>
+<br>
+
+**Challenge: Cross-referencing**
+
+Using the `knitr` `kable` function, create the next section of your `.html` file 
+to look as it does in the figure below. Create a cross-reference to the table in
+the text. 
+
+```{r, echo = FALSE}
+knitr::include_graphics("images/html_challenge_4.png")
+```
+<br>
+**Note:** Now that we are using the `bookdown::html_document2` output, each 
+heading will be numbered by default. To avoid this unwanted numbering, add 
+`{-}` next to each header.
+
+<details>  
+<summary>Solution</summary> 
+<br>
+
+In R Markdown this would look like: 
+
+```{r, echo = FALSE}
+knitr::include_graphics("images/html_solution_4.png")
+```
+<br>
 
 ***
 
 ## Code chunk options
 
+We can use code chunks to insert images and tables (through the use of `knitr`).
+We can also use code chunks to do normal coding, as we would normally in a 
+script.
+<br>
+Sometimes we may not want the code chunk to be displayed in the output, only the
+results which it produces. Similarly, perhaps we want the code chunk to be there
+but not to be executed. These types of instruction are provided in the chunk
+options, that is in the curly brackets at the top of the chunk. The most used
+chunk options are shown in the table below.
+<br>
+
+
+
+```{r, echo = FALSE}
+table2 <- data.frame("Option" = c("eval", "include", "echo", "warning", "error",
+                                  "message", "results", "cache", "fig.width and fig.height", "fig.align"),
+                     "Function" = c("Should the code be evaluated (i.e., executed)?",
+                                    "Should the code chunk and results be included in the final output?",
+                                    "Should the code chunk be displayed?",
+                                    "Should warning messages be displayed in the output?",
+                                    "Should error messages be displayed in the output?",
+                                    "Should any messages be displayed in the output?",
+                                    "How should the results be displayed?",
+                                    "Should the results be cached for future renders?",
+                                    "What width and height should a plot be rendered (in inches)?",
+                                    "How should the plot be centered"),
+                     "Default" = c("eval = TRUE",
+                                    "include = TRUE",
+                                    "echo = TRUE",
+                                    "warning = TRUE",
+                                    "error = FALSE",
+                                    "message = TRUE",
+                                    "results = **markup**",
+                                    "cache = FALSE",
+                                   "fig.width = 7",
+                                   "fig.align = **left**"))
+
+knitr::kable(table2,
+             caption = "Important code chunk options. Text displayed in bold should be provided in quotation marks.")
+```
+<br>
+<br>
+
+**I want the code chunk to appear but don't want to code to be executed (i.e., no results generated or displayed)**  
+`eval = FALSE`  
+<br>
+
+**I want the code chunk to appear and be executed, but no output to be displayed.**  
+`results = "hide"`
+<br>
+
+**I don't want any code to be displayed, but I want the code to be executed and results displayed**  
+`echo = FALSE`  
+<br>
+
+**I don't want want any code or results to be displayed, but I do want the code to be executed**  
+`include = FALSE`

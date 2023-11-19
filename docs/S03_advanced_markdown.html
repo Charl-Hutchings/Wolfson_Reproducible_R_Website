@@ -315,14 +315,12 @@ pre {
 <hr />
 <div id="adding-references-in-r-markdown" class="section level2">
 <h2>Adding references in R Markdown</h2>
-<p>When using R Markdown to create academic documents, whether these be analysis or reports, it is common to want to include references. <br></p>
+<p>When using R Markdown to create academic documents, whether these be analysis or reports, it is common to want to include references. <br> <br></p>
 <div id="external-references" class="section level4">
 <h4>External references</h4>
-<p>To do this you need to create a separate bibliography file (<code>.bib</code>) that contains all of the required references in a BibTeX format.</p>
-<p><br> <br></p>
-<p>Many referencing management tools will allow references to be exported in a BibTeX format. However, if you are struggling to access these, you can use websites such as <a href="https://www.doi2bib.org">doi2bib</a> to generate BibTeX references from a doi, PMCID, or ArXiv ID.</p>
-<p><br> <br></p>
-<p>Once we have a <code>.bib</code> file saved in our working directory, we add the file path to our R Markdown header under <code>bibliography: reference_file_name.bib</code>. Items can then be referenced within the R Markdown document using the <code>@key</code> syntax, where the key is given in the BibTeX database. To put citations in parentheses, use <span class="citation">[@key]</span>. To cite multiple entries, separate the keys by semicolons, e.g., <span class="citation">[@key-1; @key-2; @key-3]</span>. To create a link from the in-text citation to the corresponding reference in the bibliography, we add <code>link-citations: yes</code> to our header. <br> <br></p>
+<p>To do this you need to create a separate bibliography file (<code>.bib</code>) that contains all of the required references in a BibTeX format. <br></p>
+<p>Many referencing management tools will allow references to be exported in a BibTeX format. However, if you are struggling to access these, you can use websites such as <a href="https://www.doi2bib.org">doi2bib</a> to generate BibTeX references from a doi, PMCID, or ArXiv ID. <br></p>
+<p>Once we have a <code>.bib</code> file saved in our working directory, we add the file path to our R Markdown header under <code>bibliography: reference_file_name.bib</code>. Items can then be referenced within the R Markdown document using the <code>@key</code> syntax, where the key is given in the BibTeX database. To put citations in parentheses, use <code>[@key]</code>. To cite multiple entries, separate the keys by semicolons, e.g., <code>[@key-1; @key-2; @key-3]</code>. To create a link from the in-text citation to the corresponding reference in the bibliography, we add <code>link-citations: yes</code> to our header. <br> <br></p>
 <p>The default referencing style is Chicago author-date format. To change the referencing style we add another argument to our header with a link to a CSL (Citation Style Language) file. The CSL files for most major referencing styles can be found at the <a href="https://www.zotero.org/styles">Zotero Style Repository</a>. <br> <br></p>
 <p><strong>Challenge: Adding references using a <code>.bib</code> file</strong><br />
 <br> Go to <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5544260/">Blackmore et al., 2017</a> add use the paper doi to generate a BibTeX format reference. Save this in a <code>.bib</code> file (can be done from a standard text editor) and create a link to this file in your R Markdown header. Use the <code>@key</code> syntax to add this in-text citation with a link to the bibliography. <br></p>
@@ -343,18 +341,107 @@ Solution
 <li>Include a name in the chunk label - add next to <code>r</code> in the code chunk</li>
 <li>Add in-text citation using the syntax <code>\@ref(fig:r_chunk_name)</code> or <code>\@ref(tab:r_chunk_name)</code> <br> <br></li>
 </ol>
-<p><img src="images/image_referencing.png" width="50%" /> <br> The above image could be referenced by typing “… as show in Figure <code>\@ref(fig:image-name)</code>. You don’t need to keep track of which number each figure/table is, R does this for you. <br></p>
+<p><img src="images/image_referencing.png" width="80%" /> <br> The above image could be referenced by typing “… as show in Figure <code>\@ref(fig:image-name)</code>. You don’t need to keep track of which number each figure/table is, R does this for you. <br></p>
 <p><strong>Important:</strong> To use this syntax, we need to have out output set to an updated <code>.html</code> format. Change the header to <code>output: bookdown::html_document2</code>. <br> <br></p>
 </div>
 <div id="adding-links-to-web-pages" class="section level4">
 <h4>Adding links to web pages</h4>
 <p>To add an external link to a webpage we can use <code>[]()</code> syntax. Inside the first set of square brackets type the text which you wish to be rendered in Markdown with the link, and then add the link itself into the second brackets. For example <code>[click here](https://www.wolfson.cam.ac.uk)</code> would render as: <br></p>
-<p><a href="https://www.wolfson.cam.ac.uk">click here</a> <br></p>
+<p><a href="https://www.wolfson.cam.ac.uk">click here</a> <br> <br></p>
+<p><strong>Challenge: Cross-referencing</strong></p>
+<p>Using the <code>knitr</code> <code>kable</code> function, create the next section of your <code>.html</code> file to look as it does in the figure below. Create a cross-reference to the table in the text.</p>
+<p><img src="images/html_challenge_4.png" width="1085" /> <br> <strong>Note:</strong> Now that we are using the <code>bookdown::html_document2</code> output, each heading will be numbered by default. To avoid this unwanted numbering, add <code>{-}</code> next to each header.</p>
+<details>
+<summary>
+Solution
+</summary>
+<p><br></p>
+<p>In R Markdown this would look like:</p>
+<p><img src="images/html_solution_4.png" width="1024" /> <br></p>
 <hr />
 </div>
 </div>
 <div id="code-chunk-options" class="section level2">
 <h2>Code chunk options</h2>
+<p>We can use code chunks to insert images and tables (through the use of <code>knitr</code>). We can also use code chunks to do normal coding, as we would normally in a script. <br> Sometimes we may not want the code chunk to be displayed in the output, only the results which it produces. Similarly, perhaps we want the code chunk to be there but not to be executed. These types of instruction are provided in the chunk options, that is in the curly brackets at the top of the chunk. The most used chunk options are shown in the table below. <br></p>
+<table>
+<caption>Important code chunk options. Text displayed in bold should be provided in quotation marks.</caption>
+<colgroup>
+<col width="22%" />
+<col width="59%" />
+<col width="18%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Option</th>
+<th align="left">Function</th>
+<th align="left">Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">eval</td>
+<td align="left">Should the code be evaluated (i.e., executed)?</td>
+<td align="left">eval = TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">include</td>
+<td align="left">Should the code chunk and results be included in the final output?</td>
+<td align="left">include = TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">echo</td>
+<td align="left">Should the code chunk be displayed?</td>
+<td align="left">echo = TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">warning</td>
+<td align="left">Should warning messages be displayed in the output?</td>
+<td align="left">warning = TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">error</td>
+<td align="left">Should error messages be displayed in the output?</td>
+<td align="left">error = FALSE</td>
+</tr>
+<tr class="even">
+<td align="left">message</td>
+<td align="left">Should any messages be displayed in the output?</td>
+<td align="left">message = TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">results</td>
+<td align="left">How should the results be displayed?</td>
+<td align="left">results = <strong>markup</strong></td>
+</tr>
+<tr class="even">
+<td align="left">cache</td>
+<td align="left">Should the results be cached for future renders?</td>
+<td align="left">cache = FALSE</td>
+</tr>
+<tr class="odd">
+<td align="left">fig.width and fig.height</td>
+<td align="left">What width and height should a plot be rendered (in inches)?</td>
+<td align="left">fig.width = 7</td>
+</tr>
+<tr class="even">
+<td align="left">fig.align</td>
+<td align="left">How should the plot be centered</td>
+<td align="left">fig.align = <strong>left</strong></td>
+</tr>
+</tbody>
+</table>
+<p><br> <br></p>
+<p><strong>I want the code chunk to appear but don’t want to code to be executed (i.e., no results generated or displayed)</strong><br />
+<code>eval = FALSE</code><br />
+<br></p>
+<p><strong>I want the code chunk to appear and be executed, but no output to be displayed.</strong><br />
+<code>results = "hide"</code> <br></p>
+<p><strong>I don’t want any code to be displayed, but I want the code to be executed and results displayed</strong><br />
+<code>echo = FALSE</code><br />
+<br></p>
+<p><strong>I don’t want want any code or results to be displayed, but I do want the code to be executed</strong><br />
+<code>include = FALSE</code></p>
 </div>
 
 
