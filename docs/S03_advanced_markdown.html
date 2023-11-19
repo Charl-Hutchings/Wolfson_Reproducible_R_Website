@@ -307,8 +307,55 @@ pre {
 </style>
 <p>Objectives:</p>
 <ul>
+<li>Know how to add references to an R Markdown document, both external and references to tables/figures within the document</li>
+<li>Add website links to an R Markdown document</li>
+<li>Be aware of different chunk labels and options: <code>include</code>, <code>echo</code>, <code>message</code>, <code>warning</code>, <code>fig.width</code>, <code>fig.height</code>, <code>fig.align</code></li>
 <li>Convert R notebooks into <code>pdf</code>, <code>htlm</code> or word <code>doc</code> files</li>
 </ul>
+<hr />
+<div id="adding-references-in-r-markdown" class="section level2">
+<h2>Adding references in R Markdown</h2>
+<p>When using R Markdown to create academic documents, whether these be analysis or reports, it is common to want to include references. <br></p>
+<div id="external-references" class="section level4">
+<h4>External references</h4>
+<p>To do this you need to create a separate bibliography file (<code>.bib</code>) that contains all of the required references in a BibTeX format.</p>
+<p><br> <br></p>
+<p>Many referencing management tools will allow references to be exported in a BibTeX format. However, if you are struggling to access these, you can use websites such as <a href="https://www.doi2bib.org">doi2bib</a> to generate BibTeX references from a doi, PMCID, or ArXiv ID.</p>
+<p><br> <br></p>
+<p>Once we have a <code>.bib</code> file saved in our working directory, we add the file path to our R Markdown header under <code>bibliography: reference_file_name.bib</code>. Items can then be referenced within the R Markdown document using the <code>@key</code> syntax, where the key is given in the BibTeX database. To put citations in parentheses, use <span class="citation">[@key]</span>. To cite multiple entries, separate the keys by semicolons, e.g., <span class="citation">[@key-1; @key-2; @key-3]</span>. To create a link from the in-text citation to the corresponding reference in the bibliography, we add <code>link-citations: yes</code> to our header. <br> <br></p>
+<p>The default referencing style is Chicago author-date format. To change the referencing style we add another argument to our header with a link to a CSL (Citation Style Language) file. The CSL files for most major referencing styles can be found at the <a href="https://www.zotero.org/styles">Zotero Style Repository</a>. <br> <br></p>
+<p><strong>Challenge: Adding references using a <code>.bib</code> file</strong><br />
+<br> Go to <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5544260/">Blackmore et al., 2017</a> add use the paper doi to generate a BibTeX format reference. Save this in a <code>.bib</code> file (can be done from a standard text editor) and create a link to this file in your R Markdown header. Use the <code>@key</code> syntax to add this in-text citation with a link to the bibliography. <br></p>
+<details>
+<summary>
+Solution
+</summary>
+<p><br></p>
+<p>To create the BibTeX reference, simply copy and paste the doi at <a href="https://www.doi2bib.org">doi2bib</a>. Open a plain text file and copy the resulting reference in. Save this file with a <code>.bib</code> extension in the project working directory. To the header, add: <br></p>
+<p><img src="images/html_solution_3.png" width="631" /> <br> Add <code>[@Blackmore2017]</code> to include the in-text citation.</p>
+</details>
+<p><br></p>
+</div>
+<div id="references-figures-and-tables-generated-in-code-chunks" class="section level4">
+<h4>References figures and tables generated in code chunks</h4>
+<p>We saw in the last lesson that tables and images can be added to an R Markdown document using the <code>knitr</code> functions <code>kable</code> and <code>include_graphics</code>. It is also possible to make reference to these tables and figures in the Markdown text. To do so:</p>
+<ol style="list-style-type: decimal">
+<li>Include a name in the chunk label - add next to <code>r</code> in the code chunk</li>
+<li>Add in-text citation using the syntax <code>\@ref(fig:r_chunk_name)</code> or <code>\@ref(tab:r_chunk_name)</code> <br> <br></li>
+</ol>
+<p><img src="images/image_referencing.png" width="50%" /> <br> The above image could be referenced by typing “… as show in Figure <code>\@ref(fig:image-name)</code>. You don’t need to keep track of which number each figure/table is, R does this for you. <br></p>
+<p><strong>Important:</strong> To use this syntax, we need to have out output set to an updated <code>.html</code> format. Change the header to <code>output: bookdown::html_document2</code>. <br> <br></p>
+</div>
+<div id="adding-links-to-web-pages" class="section level4">
+<h4>Adding links to web pages</h4>
+<p>To add an external link to a webpage we can use <code>[]()</code> syntax. Inside the first set of square brackets type the text which you wish to be rendered in Markdown with the link, and then add the link itself into the second brackets. For example <code>[click here](https://www.wolfson.cam.ac.uk)</code> would render as: <br></p>
+<p><a href="https://www.wolfson.cam.ac.uk">click here</a> <br></p>
+<hr />
+</div>
+</div>
+<div id="code-chunk-options" class="section level2">
+<h2>Code chunk options</h2>
+</div>
 
 
 

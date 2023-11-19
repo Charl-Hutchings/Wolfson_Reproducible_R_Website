@@ -416,12 +416,12 @@ pre {
 <hr />
 <div id="r-markdown-files" class="section level2">
 <h2>R Markdown files</h2>
-<p>The term R Markdown can be used to refer to two seperate concepts: (1) a file type and (2) a writing style / language.</p>
+<p>The term R Markdown can be used to refer to two separate concepts: (1) a file type and (2) a writing style / language.</p>
 <p>The <strong>R Markdown file</strong> is a document which contains a mixture of text and code. The document contains three key features - a header, some text (written in the markdown language) and code chunks. This document can be <em>rendered</em> into various outputs including word documents, pdf files and websites. The final output will not only contain text and code, but also the resulting output of any executed code e.g., figures and tables.</p>
 <p>The <strong>R Markdown language</strong> refers to the specific way in which we can write and format text within an R Markdown document. We will cover key aspects of this language throughout the workshop. <br> <br></p>
 <div id="header" class="section level3">
 <h3>Header</h3>
-<p>The header of an R Markdown document is written in YAML format (another language, but this is not important). This section is optional but also very important in determining what the rendered output of an R Markdown file will look like. For example, the header contains information such as the document title, author and date. It is also the place where we can specify the document type to render to (e.g., <code>.html</code>, <code>.pdf</code> or <code>.doc</code>) and whether we want any table of cotents in the output. We will see several of these options throughout the course. <br></p>
+<p>The header of an R Markdown document is written in YAML format (another language, but this is not important). This section is optional but also very important in determining what the rendered output of an R Markdown file will look like. For example, the header contains information such as the document title, author and date. It is also the place where we can specify the document type to render to (e.g., <code>.html</code>, <code>.pdf</code> or <code>.doc</code>) and whether we want any table of cotents in the output. We will see several of these options throughout the course. The header is separated from the rest of the document by <code>---</code>. <br> To ensure that your research is traceable, it is recommended to have a <code>title</code>, <code>author</code>, <code>date</code> and <code>output</code> as a minimum header.</p>
 <p><img src="images/markdown_header.png" width="60%" style="display: block; margin: auto;" /> <br> <br></p>
 </div>
 <div id="markdown" class="section level3">
@@ -636,7 +636,7 @@ Solution
 <div id="using-standard-markdown-syntax-1" class="section level4">
 <h4>Using standard markdown syntax</h4>
 <p>Again, we can use a standard markdown syntax. To insert an image this looks like <code>![Figure caption](path to image)</code>. <br></p>
-<p>For example, <code>![RNA sequencing method](images/transcriptomics.jpeg)</code> will be rendered as: <br></p>
+<p>For example, <code>![R logo](images/transcriptomics.jpeg)</code> will be rendered as: <br></p>
 <div class="figure">
 <img src="images/Rlogo.png" alt="" />
 <p class="caption">R logo</p>
@@ -649,7 +649,7 @@ Solution
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;images/Rlogo.png&quot;</span>)</span></code></pre></div>
 <p><img src="images/Rlogo.png" width="362" /></p>
 <p><br></p>
-<p>This second method has the advantage of being more flexible and providing easier routes to change the image formating e.g., size, alignment, caption. We will come across some of these later. <br></p>
+<p>This second method has the advantage of being more flexible and providing easier routes to change the image formating e.g., size, alignment, caption. We will come across some of these later. <br> <br></p>
 <p><strong>Challenge: Adding tables and images using <code>knitr</code></strong></p>
 <p>Add to your previous <code>.html</code> document to create the following <code>.html</code>. <br></p>
 <p><img src="images/html_challenge_2.png" width="100%" style="display: block; margin: auto;" /></p>

@@ -30,7 +30,7 @@ Objectives:
 
 ## R Markdown files
 
-The term R Markdown can be used to refer to two seperate concepts: (1) a file
+The term R Markdown can be used to refer to two separate concepts: (1) a file
 type and (2) a writing style / language. 
 
 The **R Markdown file** is a document which contains a mixture of text and code.
@@ -54,8 +54,11 @@ in determining what the rendered output of an R Markdown file will look like.
 For example, the header contains information such as the document title, author
 and date. It is also the place where we can specify the document type to render
 to (e.g., `.html`, `.pdf` or `.doc`) and whether we want any table of cotents in
-the output. We will see several of these options throughout the course.
+the output. We will see several of these options throughout the course. The 
+header is separated from the rest of the document by `---`.
 <br>
+To ensure that your research is traceable, it is recommended to have a `title`,
+`author`, `date` and `output` as a minimum header. 
 
 ```{r, echo = FALSE, fig.align = "center", out.width = "60%"}
 knitr::include_graphics("images/markdown_header.png")
@@ -363,7 +366,7 @@ Again, we can use a standard markdown syntax. To insert an image this looks like
 `![Figure caption](path to image)`.
 <br>
 
-For example, `![RNA sequencing method](images/transcriptomics.jpeg)` will be
+For example, `![R logo](images/transcriptomics.jpeg)` will be
 rendered as:
 <br>
 
@@ -375,7 +378,7 @@ rendered as:
 
 We can also use another `knitr` function called `include_graphics`.
 
-```{r}
+```{r r-logo}
 knitr::include_graphics("images/Rlogo.png")
 ```
 
@@ -385,13 +388,14 @@ This second method has the advantage of being more flexible and providing easier
 routes to change the image formating e.g., size, alignment, caption. We will 
 come across some of these later.
 <br>
+<br>
 
 **Challenge: Adding tables and images using `knitr`**  
 
 Add to your previous `.html` document to create the following `.html`.
 <br>
 
-```{r, echo = FALSE, fig.align = "center", out.width = "100%"}
+```{r image-name, echo = FALSE, fig.align = "center", out.width = "100%"}
 knitr::include_graphics("images/html_challenge_2.png")
 ```
 
