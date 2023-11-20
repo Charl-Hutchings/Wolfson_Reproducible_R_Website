@@ -44,6 +44,107 @@
 
 
 
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  { color: #cccccc; background-color: #303030; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ffcfaf; } /* Alert */
+code span.an { color: #7f9f7f; font-weight: bold; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bn { color: #dca3a3; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #f0dfaf; } /* ControlFlow */
+code span.ch { color: #dca3a3; } /* Char */
+code span.cn { color: #dca3a3; font-weight: bold; } /* Constant */
+code span.co { color: #7f9f7f; } /* Comment */
+code span.cv { color: #7f9f7f; font-weight: bold; } /* CommentVar */
+code span.do { color: #7f9f7f; } /* Documentation */
+code span.dt { color: #dfdfbf; } /* DataType */
+code span.dv { color: #dcdccc; } /* DecVal */
+code span.er { color: #c3bf9f; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #c0bed1; } /* Float */
+code span.fu { color: #efef8f; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #7f9f7f; font-weight: bold; } /* Information */
+code span.kw { color: #f0dfaf; } /* Keyword */
+code span.op { color: #f0efd0; } /* Operator */
+code span.ot { color: #efef8f; } /* Other */
+code span.pp { color: #ffcfaf; font-weight: bold; } /* Preprocessor */
+code span.sc { color: #dca3a3; } /* SpecialChar */
+code span.ss { color: #cc9393; } /* SpecialString */
+code span.st { color: #cc9393; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #cc9393; } /* VerbatimString */
+code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
 
 
 
@@ -344,6 +445,147 @@ pre {
 </ul>
 <p>There are several good style guides available, including <a href="https://google.github.io/styleguide/Rguide.html">Google’s R style guidelines</a>, <a href="https://style.tidyverse.org">the Tidyverse style guide</a>, <a href="http://adv-r.had.co.nz/Style.html">Hadley Wickham’s R style guidelines</a>, and <a href="https://contributions.bioconductor.org/r-code.html">the Bioconductor styel guide</a>. <br></p>
 <p>Some key points that are shared across guides:</p>
+<ul>
+<li>Use <code>&lt;-</code> not <code>=</code> for assignment</li>
+<li>Guidelines for naming objects:
+<ul>
+<li>Decide on a consistent naming style e.g., camelCase or snake_case</li>
+<li>Avoid spaces or dot (<code>.</code>) and instead use an underscore (<code>_</code>)</li>
+<li>Only use meaningful names - nouns for objects (e.g., <code>todays_groups</code>) and verbs for actions (e.g., <code>make_groups</code>)</li>
+<li>Avoid names of common functions e.g., <code>mean</code></li>
+</ul></li>
+<li>Keep lines to 80 characters or less, as indicated by the margin column on your screen</li>
+<li>Put a space either side of binary operators (including <code>&lt;-</code>, <code>+</code>, <code>-</code> and <code>=</code>)</li>
+<li>Do not put a space either side of a colon (<code>:</code>) <br> <br></li>
+</ul>
+<p>Broader guidelines - <strong>omit needless code and avoid repetition</strong>. We will discuss how to do this in the next section of the workshop.</p>
+</div>
+<div id="reducing-repetition-by-creating-functions" class="section level2">
+<h2>Reducing repetition by creating functions</h2>
+<p>You are likely already aware of and comfortable with functions in R - we’ve used several throughout this workshop. Functions allow us to automate common coding tasks in a more powerful way than copy-and-pasting. In addition to using functions that already exist in base-R or R packages, we can write our own functions. <br></p>
+<p>The advantages of writing a function rather than repeating code:</p>
+<ol style="list-style-type: decimal">
+<li>You can give a function a meaningful name to outline what the code is doing</li>
+<li>If you need to change something you will only need to update code in a single place</li>
+<li>Reduced chances of making a mistake e.g., copying a chunk of code without changing a variable name <br></li>
+</ol>
+<p><strong>When should you write a function?</strong><br />
+It is good practice to write a function whenever we intend to run a set of commands more than twice. <br></p>
+<div id="three-steps-to-creating-a-function" class="section level4">
+<h4>Three steps to creating a function</h4>
+<p>There are three main things that we need to specify in order to generate a function:</p>
+<ol style="list-style-type: decimal">
+<li>A meaningful function name</li>
+<li>A list of inputs to the function - the equivalent of standard arguments</li>
+<li>A set of commands to be packaged into the function body <br></li>
+</ol>
+<p><code>function_name &lt;- function(inputs) {     function body }</code></p>
+<p><br></p>
+<p><strong>Choosing a function name</strong><br />
+The function name is what the function will be stored as within the R environment and how we will call the function when we wish to use it. As with all naming in R, function names should be clear, concise and meaningful. We usually use verbs in function names but nouns can also be used if they are descriptive and unambiguous. For example, if we want to create a function to calculate the circumference of a circle, it would be sensible to call this function <code>circumference</code> rather than <code>function_1</code> or <code>circumference_of_a_circle</code>. <br></p>
+<p><strong>Defining the function inputs</strong><br />
+The inputs to a function are the formal arguments, or ‘parameters’. These are the variables placed inside of the parentheses and separated by commas. When we call the function we will provide actual values to these arguments. In the example of circumference, the only input to our function will be the circle radius, <em>r</em>. This is the only variable in the equation <em>C</em> = 2 * pi * <em>r</em>. We will specify what to do with each input in the next section, the function body. <br></p>
+<p><strong>Writing commands in the function body</strong><br />
+The function body is a set of commands provided inside of a pair of curly brackets (<code>{}</code>). These are the predefined set of commands that will be run every time we call our function.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Define function</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>circumference <span class="ot">&lt;-</span> <span class="cf">function</span>(r) {</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2</span> <span class="sc">*</span> pi <span class="sc">*</span> r</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Use function</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">circumference</span>(<span class="at">r =</span> <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## [1] 12.56637</code></pre>
+</div>
+<div id="more-complex-considerations-when-creating-a-function" class="section level4">
+<h4>More complex considerations when creating a function</h4>
+<p><strong>I want to set a default value for one of my inputs</strong><br />
+To create a default value for one of the function inputs, simply include the value when defining inputs. The default values can still be over-written by specifying another value when calling the function. For example:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Define function with default value of r</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>circumference <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">r =</span> <span class="dv">1</span>) {</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2</span> <span class="sc">*</span> pi <span class="sc">*</span> r</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Use function without specifying r</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">circumference</span>()</span></code></pre></div>
+<pre><code>## [1] 6.283185</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Use function and override default value of r</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">circumference</span>(<span class="at">r =</span> <span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1] 31.41593</code></pre>
+<p><br> <strong>I want my function to print value(s)</strong> As you can see from the example above, as code is executed an output appears in the same way as when we execute code normally. Usually it is the last evaluated statement that will be returned. If we want earlier content to be returned we can use the explicit <code>return</code> function. <br></p>
+<p>The <code>return</code> function is often combined with <code>if</code> or <code>ifelse</code> statements. For example, if an argument is missing we may wish to <code>return</code> a warning message to ourselves to remind ourselves that a default value is being used. Maybe in this case we would want to return an <code>NaN</code> value in response to a negative value of <em>r</em>, given that negative circumference is not possible. <br></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>circumference <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">r =</span> <span class="dv">1</span>) {</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2</span> <span class="sc">*</span> pi <span class="sc">*</span> r</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (r <span class="sc">&lt;</span> <span class="dv">0</span>) {</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="cn">NaN</span>)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="fu">circumference</span>(<span class="at">r =</span> <span class="sc">-</span><span class="dv">3</span>)</span></code></pre></div>
+<pre><code>## [1] NaN</code></pre>
+<p><br></p>
+<p><strong>I want my function to save value(s)</strong> Sometimes we don’t just want our function to print the result but also save this in an object in our environment. There are several ways in which we can do this. <br></p>
+<p>Let’s try using the normal assignment operator.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>subtract_two_nums <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  answer <span class="ot">&lt;-</span> x <span class="sc">-</span> y</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="fu">subtract_two_nums</span>(<span class="at">x =</span> <span class="dv">9</span>, <span class="at">y =</span> <span class="dv">6</span>)</span></code></pre></div>
+<p>The object <code>answer</code> only exists within the function and does not get saved within our R environment. This means that we can only use the <code>answer</code> object within the function. If we want to assign the answer to an object in the R environment we can use the <code>assign</code> function.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>subtract_two_nums <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  answer <span class="ot">&lt;-</span> x <span class="sc">-</span> y</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">assign</span>(<span class="st">&quot;result&quot;</span>, answer, <span class="at">envir =</span>  .GlobalEnv)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="fu">subtract_two_nums</span>(<span class="at">x =</span> <span class="dv">9</span>, <span class="at">y =</span> <span class="dv">6</span>)</span></code></pre></div>
+<p><br></p>
+<p>We are assigning the value of <code>answer</code> to an object called <code>"result"</code>, which will be stored in the global environment. It is easy enough to print and assign the output of a function at the same time.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>subtract_two_nums <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  answer <span class="ot">&lt;-</span> x <span class="sc">-</span> y</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">assign</span>(<span class="st">&quot;result&quot;</span>, answer, <span class="at">envir =</span>  .GlobalEnv)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(answer)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="fu">subtract_two_nums</span>(<span class="at">x =</span> <span class="dv">9</span>, <span class="at">y =</span> <span class="dv">6</span>)</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<p><br></p>
+<p><strong>Challenge: Creating functions</strong><br />
+Start by creating a simple function called <code>add_seven</code> which takes the argument <code>x</code> and both prints and saves the output of adding 7 to the value of <code>x</code>. <br></p>
+<details>
+<summary>
+Solution
+</summary>
+<p><br></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Define function</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>add_three <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  answer <span class="ot">&lt;-</span> x <span class="sc">+</span> <span class="dv">7</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">assign</span>(<span class="st">&quot;updated_x&quot;</span>, answer, <span class="at">envir =</span> .GlobalEnv)  </span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(answer)</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="do">## Test function</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="fu">add_three</span>(<span class="at">x =</span> <span class="dv">8</span>)</span></code></pre></div>
+<pre><code>## [1] 15</code></pre>
+<p><br></p>
+</details>
+<p>Now try to create a more complex function.</p>
+</div>
+</div>
+<div id="reducing-repetitions-by-applying-loops" class="section level2">
+<h2>Reducing repetitions by applying loops</h2>
 </div>
 
 

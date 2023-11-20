@@ -77,3 +77,230 @@ and [the Bioconductor styel guide](https://contributions.bioconductor.org/r-code
 
 Some key points that are shared across guides:
 
+* Use `<-` not `=` for assignment
+* Guidelines for naming objects: 
+  + Decide on a consistent naming style e.g., camelCase or snake_case
+  + Avoid spaces or dot (`.`) and instead use an underscore (`_`)
+  + Only use meaningful names - nouns for objects (e.g., `todays_groups`) and verbs for actions (e.g., `make_groups`)
+  + Avoid names of common functions e.g., `mean`
+* Keep lines to 80 characters or less, as indicated by the margin column on your screen
+* Put a space either side of binary operators (including `<-`, `+`, `-` and `=`)
+* Do not put a space either side of a colon (`:`)
+<br>
+<br>
+
+Broader guidelines - **omit needless code and avoid repetition**. We will discuss
+how to do this in the next section of the workshop. 
+
+
+
+## Reducing repetition by creating functions
+
+You are likely already aware of and comfortable with functions in R - we've 
+used several throughout this workshop. Functions allow us to automate common
+coding tasks in a more powerful way than copy-and-pasting. In addition to using
+functions that already exist in base-R or R packages, we can write our own 
+functions. 
+<br>
+
+The advantages of writing a function rather than repeating code:
+
+1. You can give a function a meaningful name to outline what the code is doing
+2. If you need to change something you will only need to update code in a single place
+3. Reduced chances of making a mistake e.g., copying a chunk of code without changing a variable name
+<br>
+
+**When should you write a function?**  
+It is good practice to write a function whenever we intend to run a set of commands
+more than twice.
+<br>
+
+#### Three steps to creating a function
+There are three main things that we need to specify in order to generate a function:
+
+1. A meaningful function name
+2. A list of inputs to the function - the equivalent of standard arguments
+3. A set of commands to be packaged into the function body
+<br>
+
+`function_name <- function(inputs) {
+    function body
+}`
+
+<br>
+
+**Choosing a function name**  
+The function name is what the function will be stored as within the R environment
+and how we will call the function when we wish to use it. As with all naming in R,
+function names should be clear, concise and meaningful. We usually use verbs in 
+function names but nouns can also be used if they are descriptive and unambiguous.
+For example, if we want to create a function to calculate the circumference of a 
+circle, it would be sensible to call this function `circumference` rather than
+`function_1` or `circumference_of_a_circle`.
+<br>
+
+**Defining the function inputs**  
+The inputs to a function are the formal arguments, or 'parameters'. These are the
+variables placed inside of the parentheses and separated by commas. When we call
+the function we will provide actual values to these arguments. In the example of
+circumference, the only input to our function will be the circle radius, *r*. 
+This is the only variable in the equation *C* = 2 * pi * *r*. We will specify 
+what to do with each input in the next section, the function body.
+<br>
+
+**Writing commands in the function body**  
+The function body is a set of commands provided inside of a pair of curly brackets
+(`{}`). These are the predefined set of commands that will be run every time we 
+call our function.
+
+```{r}
+## Define function
+circumference <- function(r) {
+  
+  2 * pi * r
+}
+
+## Use function
+circumference(r = 2)
+```
+
+
+#### More complex considerations when creating a function
+**I want to set a default value for one of my inputs**  
+To create a default value for one of the function inputs, simply include the 
+value when defining inputs. The default values can still be over-written by 
+specifying another value when calling the function. For example:
+
+```{r}
+## Define function with default value of r
+circumference <- function(r = 1) {
+  
+  2 * pi * r
+}
+
+## Use function without specifying r
+circumference()
+
+## Use function and override default value of r
+circumference(r = 5)
+```
+
+<br>
+**I want my function to print value(s)**
+As you can see from the example above, as code is executed an output appears in
+the same way as when we execute code normally. Usually it is the last evaluated
+statement that will be returned. If we want earlier content to be returned we 
+can use the explicit `return` function.
+<br>
+
+The `return` function is often combined with `if` or `ifelse` statements. For 
+example, if an argument is missing we may wish to `return` a warning message to
+ourselves to remind ourselves that a default value is being used. Maybe in this
+case we would want to return an `NaN` value in response to a negative value of 
+*r*, given that negative circumference is not possible.
+<br>
+
+```{r}
+circumference <- function(r = 1) {
+  
+  2 * pi * r
+  
+  if (r < 0) {
+    
+  return(NaN)
+    
+  }
+  
+}
+
+circumference(r = -3)
+```
+
+<br>
+
+**I want my function to save value(s)**
+Sometimes we don't just want our function to print the result but also save this
+in an object in our environment. There are several ways in which we can do this.
+<br>
+
+Let's try using the normal assignment operator.
+
+```{r}
+subtract_two_nums <- function(x, y) {
+  
+  answer <- x - y
+}
+
+subtract_two_nums(x = 9, y = 6)
+```
+
+
+The object `answer` only exists within the function and does not get saved 
+within our R environment. This means that we can only use the `answer` object
+within the function. If we want to assign the answer to an object in the R
+environment we can use the `assign` function.
+
+
+```{r}
+subtract_two_nums <- function(x, y) {
+  
+  answer <- x - y
+  
+  assign("result", answer, envir =  .GlobalEnv)
+}
+
+subtract_two_nums(x = 9, y = 6)
+```
+<br>
+
+We are assigning the value of `answer` to an object called `"result"`, which will
+be stored in the global environment. It is easy enough to print and assign the 
+output of a function at the same time.
+
+```{r}
+subtract_two_nums <- function(x, y) {
+  
+  answer <- x - y
+  
+  assign("result", answer, envir =  .GlobalEnv)
+  print(answer)
+}
+
+subtract_two_nums(x = 9, y = 6)
+```
+
+<br>
+
+**Challenge: Creating functions**  
+Start by creating a simple function called `add_seven` which takes the argument
+`x` and both prints and saves the output of adding 7 to the value of `x`.
+<br>
+
+<details>  
+<summary>Solution</summary> 
+<br>
+
+
+```{r}
+## Define function
+add_three <- function(x) {
+
+  answer <- x + 7
+
+  assign("updated_x", answer, envir = .GlobalEnv)  
+  print(answer)
+}
+
+## Test function
+add_three(x = 8)
+```
+
+<br>
+
+</details>
+
+Now try to create a more complex function.
+
+
+
+## Reducing repetitions by applying loops
