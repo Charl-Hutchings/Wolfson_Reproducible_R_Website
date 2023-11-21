@@ -91,8 +91,9 @@ Some key points that are shared across guides:
 
 Broader guidelines - **omit needless code and avoid repetition**. We will discuss
 how to do this in the next section of the workshop. 
+<br>
 
-
+***
 
 ## Reducing repetition by creating functions
 
@@ -109,13 +110,15 @@ The advantages of writing a function rather than repeating code:
 2. If you need to change something you will only need to update code in a single place
 3. Reduced chances of making a mistake e.g., copying a chunk of code without changing a variable name
 <br>
+<br>
 
 **When should you write a function?**  
 It is good practice to write a function whenever we intend to run a set of commands
 more than twice.
 <br>
+<br>
 
-#### Three steps to creating a function
+### Three steps to creating a function
 There are three main things that we need to specify in order to generate a function:
 
 1. A meaningful function name
@@ -123,9 +126,7 @@ There are three main things that we need to specify in order to generate a funct
 3. A set of commands to be packaged into the function body
 <br>
 
-`function_name <- function(inputs) {
-    function body
-}`
+`function_name <- function(inputs) {function body}`
 
 <br>
 
@@ -138,6 +139,7 @@ For example, if we want to create a function to calculate the circumference of a
 circle, it would be sensible to call this function `circumference` rather than
 `function_1` or `circumference_of_a_circle`.
 <br>
+<br>
 
 **Defining the function inputs**  
 The inputs to a function are the formal arguments, or 'parameters'. These are the
@@ -146,6 +148,7 @@ the function we will provide actual values to these arguments. In the example of
 circumference, the only input to our function will be the circle radius, *r*. 
 This is the only variable in the equation *C* = 2 * pi * *r*. We will specify 
 what to do with each input in the next section, the function body.
+<br>
 <br>
 
 **Writing commands in the function body**  
@@ -163,9 +166,9 @@ circumference <- function(r) {
 ## Use function
 circumference(r = 2)
 ```
+<br>
 
-
-#### More complex considerations when creating a function
+### More complex considerations when creating a function
 **I want to set a default value for one of my inputs**  
 To create a default value for one of the function inputs, simply include the 
 value when defining inputs. The default values can still be over-written by 
@@ -186,7 +189,7 @@ circumference(r = 5)
 ```
 
 <br>
-**I want my function to print value(s)**
+**I want my function to print value(s)**  
 As you can see from the example above, as code is executed an output appears in
 the same way as when we execute code normally. Usually it is the last evaluated
 statement that will be returned. If we want earlier content to be returned we 
@@ -218,7 +221,7 @@ circumference(r = -3)
 
 <br>
 
-**I want my function to save value(s)**
+**I want my function to save value(s)**  
 Sometimes we don't just want our function to print the result but also save this
 in an object in our environment. There are several ways in which we can do this.
 <br>
@@ -251,7 +254,6 @@ subtract_two_nums <- function(x, y) {
 
 subtract_two_nums(x = 9, y = 6)
 ```
-<br>
 
 We are assigning the value of `answer` to an object called `"result"`, which will
 be stored in the global environment. It is easy enough to print and assign the 
@@ -295,12 +297,277 @@ add_three <- function(x) {
 add_three(x = 8)
 ```
 
+</details>
 <br>
 
+Now try to create a function from scratch. Create a function to find the sum of 
+all even integers between any two values.
+
+<details>  
+<summary>Solution</summary> 
+<br>
+
+```{r}
+cumulative_even_sum <- function(x, y) {
+  
+  values <- x:y    # first get all integers between the two values
+  
+  even <- values[which(values %% 2 == 0)]  # subset values that have a remainder of 0 when divided by 2
+  
+  sum(even)  # sum the even values
+  
+}
+
+
+cumulative_even_sum(0, 10)
+```
+
 </details>
+<br>
 
-Now try to create a more complex function.
-
-
+***
 
 ## Reducing repetitions by applying loops
+
+Another way to reduce repetition in our code is through the use of loops. When 
+you create a loop, R will execute all commands within the loop a specified number
+of times or until a condition is met. There are three main types of loop in R:
+
+1. the *for* loop
+2. the *while* loop
+3. the *repeat* loop
+<br>
+
+```{r, echo = FALSE, out.width = "80%"}
+knitr::include_graphics("images/loops.png")
+```
+
+
+### For loops - the most common R loop 
+
+A for loop is the most frequently used loop in the R language and is used to 
+carry out a set of commands in an iterative manner over a collection of objects.
+This can be over each value of a vector, each column of a data frame, each 
+component of a list etc. The loop will repeat the task a defined number of times.
+
+<br>
+`for (variable in sequence) {expression} `
+<br>
+
+The *sequence* is the collection of objects (eg., vector) over which the for-loop
+iterates. A *variable* is an item of that collection at each iteration, and the
+*expression* is a set of commands that we wish to apply to each variable.
+<br>
+
+Let's look at a simple for loop.
+
+```{r}
+for (x in 1:5) {
+  print(x)
+}
+```
+<br>
+
+The expression inside of the loop, here `print(x)` is carried out iteratively
+for each value of x. In other words, the loop will first be completed using 
+`x = 1`, then once it has finished another iteration begins with `x = 2`, then
+`x = 3`, until all variables in the sequence have been used. Even simple loops 
+like this can be made useful in a real-world setting.
+
+```{r}
+for (month in 1:5) {
+  print(paste("Month:", month))
+}
+```
+
+```{r}
+for (month in 1:5) {
+  
+  if (month < 3) {
+    
+    print(paste("Winter"))
+    
+  }
+  
+  else {
+    
+    print(paste("Spring"))
+  }
+}
+```
+
+<br>
+
+**I want to store the output of my for loop**  
+As was the case when we created our own functions, the results of a for loop 
+are not automatically saved as an object in our environment. To do this we can 
+append the results to an empty vector, which we define before the for loop.
+
+```{r}
+month_vector <- c()
+
+for (month in 1:5) {
+  
+  month <- (paste("Month:", month))
+  
+  month_vector <- c(month_vector, month)
+  
+}
+
+```
+<br>
+<br>
+
+<details>  
+<summary>Solution</summary> 
+<br>
+
+**Challenge: storing loop outputs**  
+Alter the seasons for loop to save a vector of length 5 which contains the 
+outputs of our loop. 
+
+
+```{r}
+seasons_vector <- c()
+
+for (month in 1:5) {
+  
+  if (month < 3) {
+    
+    seasons_vector <- c(seasons_vector, "Winter")
+    
+  }
+  
+  else {
+    
+    seasons_vector <- c(seasons_vector, "Spring")
+  }
+}
+```
+
+
+</details>
+<br>
+<br>
+
+**I want to use a for loop on a list**  
+Sometimes we want to do the same set of commands to different objects. For 
+example, we may have a set of data frames that each hold the same experimental
+data taken from separate biological replicates. To do the same operations to 
+these data frames, we could put these into a list and then loop over the lists.
+<br>
+
+Let's create some data frames and store them in a list.
+
+```{r}
+## Create example data frames
+
+df_1 <- data.frame(month_vector, seasons_vector)
+df_2 <- df_1
+df_3 <- df_1
+
+
+## Store data frames in a list
+all_dfs <- list(df_1, df_2, df_3)
+
+## Store new names
+new_names <- c("updated_df1", "updated_df2", "updated_df3")
+```
+<br>
+
+A list can be used to store data frames, vectors, matrices - most objects. To 
+loop over items in a list we can use indexing.
+
+```{r}
+for (i in 1:length(all_dfs)) {
+  
+  df <- all_dfs[[i]]
+  
+  new_df <- df %>%
+    as_tibble %>% 
+    mutate(weather = ifelse(seasons_vector == "Winter", "cold", "warm"))
+  
+  assign((new_names[[i]]), new_df, .GlobalEnv)
+  
+}
+```
+<br>
+
+### The `lapply` function
+
+We can also loop through a list using the `lapply` function. The `lapply`
+function takes two arguments, `X` and `FUN`. The value of `X` is the sequence
+we want to apply to e.g., a vector or list. The `FUN` argument is short for
+function, this can be a pre-existing function or we can define a function here.
+
+```{r}
+## Using lapply with a pre-existing function
+lapply(X = c(1.34, 1.78, 2.34, 1.12), FUN = round)
+```
+
+```{r}
+## Using lapply with a user-defined function
+lapply(X = c(1.34, 1.78, 2.34, 1.12), FUN = function(x){
+  
+  x + 1
+  
+})
+```
+<br>
+
+The output of `lapply` is a list - we can tell this from the double square 
+bracket nomenclature. To do the same thing but have our output as a vector we 
+can use `sapply`.
+
+
+```{r}
+## Using lapply with a user-defined function
+sapply(X = c(1.34, 1.78, 2.34, 1.12), FUN = function(x){
+  
+  x + 1
+  
+})
+```
+
+
+**Challenge: Using loops and the apply family of functions**
+Add another columns to each of the updated data frames to store numerical 
+temperature values (make these up). Then use the apply functions (`lapply` or 
+`sapply`) to loop over the updated data frames and output a vector containing 
+the mean temperature. 
+
+<details>  
+<summary>Solution</summary> 
+<br>
+
+```{r}
+## Put objects into a list
+updated_dfs <- list(updated_df1, updated_df2, updated_df3)
+new_names <- c("updated_df1", "updated_df2", "updated_df3")
+
+## Create new temperature columns
+for (i in 1:length(updated_dfs)) {
+  
+  df <- updated_dfs[[i]]
+  
+  df$temp <- c(4.8, 5.2, 13, 14.1, 12.7)
+  
+  assign((new_names[[i]]), df, .GlobalEnv)
+  
+}
+
+## Use sapply to get vector containing mean temperature
+updated_dfs_v2 <- list(updated_df1, updated_df2, updated_df3)
+sapply(X = updated_dfs_v2, FUN = function(x) {
+  
+  x %>%
+    as_tibble() %>%
+    pull(temp) %>%
+    mean()
+  
+})
+```
+
+</details>
+<br>
+<br>

@@ -458,7 +458,8 @@ pre {
 <li>Put a space either side of binary operators (including <code>&lt;-</code>, <code>+</code>, <code>-</code> and <code>=</code>)</li>
 <li>Do not put a space either side of a colon (<code>:</code>) <br> <br></li>
 </ul>
-<p>Broader guidelines - <strong>omit needless code and avoid repetition</strong>. We will discuss how to do this in the next section of the workshop.</p>
+<p>Broader guidelines - <strong>omit needless code and avoid repetition</strong>. We will discuss how to do this in the next section of the workshop. <br></p>
+<hr />
 </div>
 <div id="reducing-repetition-by-creating-functions" class="section level2">
 <h2>Reducing repetition by creating functions</h2>
@@ -467,24 +468,24 @@ pre {
 <ol style="list-style-type: decimal">
 <li>You can give a function a meaningful name to outline what the code is doing</li>
 <li>If you need to change something you will only need to update code in a single place</li>
-<li>Reduced chances of making a mistake e.g., copying a chunk of code without changing a variable name <br></li>
+<li>Reduced chances of making a mistake e.g., copying a chunk of code without changing a variable name <br> <br></li>
 </ol>
 <p><strong>When should you write a function?</strong><br />
-It is good practice to write a function whenever we intend to run a set of commands more than twice. <br></p>
-<div id="three-steps-to-creating-a-function" class="section level4">
-<h4>Three steps to creating a function</h4>
+It is good practice to write a function whenever we intend to run a set of commands more than twice. <br> <br></p>
+<div id="three-steps-to-creating-a-function" class="section level3">
+<h3>Three steps to creating a function</h3>
 <p>There are three main things that we need to specify in order to generate a function:</p>
 <ol style="list-style-type: decimal">
 <li>A meaningful function name</li>
 <li>A list of inputs to the function - the equivalent of standard arguments</li>
 <li>A set of commands to be packaged into the function body <br></li>
 </ol>
-<p><code>function_name &lt;- function(inputs) {     function body }</code></p>
+<p><code>function_name &lt;- function(inputs) {function body}</code></p>
 <p><br></p>
 <p><strong>Choosing a function name</strong><br />
-The function name is what the function will be stored as within the R environment and how we will call the function when we wish to use it. As with all naming in R, function names should be clear, concise and meaningful. We usually use verbs in function names but nouns can also be used if they are descriptive and unambiguous. For example, if we want to create a function to calculate the circumference of a circle, it would be sensible to call this function <code>circumference</code> rather than <code>function_1</code> or <code>circumference_of_a_circle</code>. <br></p>
+The function name is what the function will be stored as within the R environment and how we will call the function when we wish to use it. As with all naming in R, function names should be clear, concise and meaningful. We usually use verbs in function names but nouns can also be used if they are descriptive and unambiguous. For example, if we want to create a function to calculate the circumference of a circle, it would be sensible to call this function <code>circumference</code> rather than <code>function_1</code> or <code>circumference_of_a_circle</code>. <br> <br></p>
 <p><strong>Defining the function inputs</strong><br />
-The inputs to a function are the formal arguments, or ‘parameters’. These are the variables placed inside of the parentheses and separated by commas. When we call the function we will provide actual values to these arguments. In the example of circumference, the only input to our function will be the circle radius, <em>r</em>. This is the only variable in the equation <em>C</em> = 2 * pi * <em>r</em>. We will specify what to do with each input in the next section, the function body. <br></p>
+The inputs to a function are the formal arguments, or ‘parameters’. These are the variables placed inside of the parentheses and separated by commas. When we call the function we will provide actual values to these arguments. In the example of circumference, the only input to our function will be the circle radius, <em>r</em>. This is the only variable in the equation <em>C</em> = 2 * pi * <em>r</em>. We will specify what to do with each input in the next section, the function body. <br> <br></p>
 <p><strong>Writing commands in the function body</strong><br />
 The function body is a set of commands provided inside of a pair of curly brackets (<code>{}</code>). These are the predefined set of commands that will be run every time we call our function.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Define function</span></span>
@@ -496,9 +497,10 @@ The function body is a set of commands provided inside of a pair of curly bracke
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Use function</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">circumference</span>(<span class="at">r =</span> <span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] 12.56637</code></pre>
+<p><br></p>
 </div>
-<div id="more-complex-considerations-when-creating-a-function" class="section level4">
-<h4>More complex considerations when creating a function</h4>
+<div id="more-complex-considerations-when-creating-a-function" class="section level3">
+<h3>More complex considerations when creating a function</h3>
 <p><strong>I want to set a default value for one of my inputs</strong><br />
 To create a default value for one of the function inputs, simply include the value when defining inputs. The default values can still be over-written by specifying another value when calling the function. For example:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Define function with default value of r</span></span>
@@ -513,7 +515,8 @@ To create a default value for one of the function inputs, simply include the val
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Use function and override default value of r</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">circumference</span>(<span class="at">r =</span> <span class="dv">5</span>)</span></code></pre></div>
 <pre><code>## [1] 31.41593</code></pre>
-<p><br> <strong>I want my function to print value(s)</strong> As you can see from the example above, as code is executed an output appears in the same way as when we execute code normally. Usually it is the last evaluated statement that will be returned. If we want earlier content to be returned we can use the explicit <code>return</code> function. <br></p>
+<p><br> <strong>I want my function to print value(s)</strong><br />
+As you can see from the example above, as code is executed an output appears in the same way as when we execute code normally. Usually it is the last evaluated statement that will be returned. If we want earlier content to be returned we can use the explicit <code>return</code> function. <br></p>
 <p>The <code>return</code> function is often combined with <code>if</code> or <code>ifelse</code> statements. For example, if an argument is missing we may wish to <code>return</code> a warning message to ourselves to remind ourselves that a default value is being used. Maybe in this case we would want to return an <code>NaN</code> value in response to a negative value of <em>r</em>, given that negative circumference is not possible. <br></p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>circumference <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">r =</span> <span class="dv">1</span>) {</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  </span>
@@ -530,7 +533,8 @@ To create a default value for one of the function inputs, simply include the val
 <span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="fu">circumference</span>(<span class="at">r =</span> <span class="sc">-</span><span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## [1] NaN</code></pre>
 <p><br></p>
-<p><strong>I want my function to save value(s)</strong> Sometimes we don’t just want our function to print the result but also save this in an object in our environment. There are several ways in which we can do this. <br></p>
+<p><strong>I want my function to save value(s)</strong><br />
+Sometimes we don’t just want our function to print the result but also save this in an object in our environment. There are several ways in which we can do this. <br></p>
 <p>Let’s try using the normal assignment operator.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>subtract_two_nums <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  </span>
@@ -547,7 +551,6 @@ To create a default value for one of the function inputs, simply include the val
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="fu">subtract_two_nums</span>(<span class="at">x =</span> <span class="dv">9</span>, <span class="at">y =</span> <span class="dv">6</span>)</span></code></pre></div>
-<p><br></p>
 <p>We are assigning the value of <code>answer</code> to an object called <code>"result"</code>, which will be stored in the global environment. It is easy enough to print and assign the output of a function at the same time.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>subtract_two_nums <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  </span>
@@ -579,13 +582,227 @@ Solution
 <span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="do">## Test function</span></span>
 <span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="fu">add_three</span>(<span class="at">x =</span> <span class="dv">8</span>)</span></code></pre></div>
 <pre><code>## [1] 15</code></pre>
-<p><br></p>
 </details>
-<p>Now try to create a more complex function.</p>
+<p><br></p>
+<p>Now try to create a function from scratch. Create a function to find the sum of all even integers between any two values.</p>
+<details>
+<summary>
+Solution
+</summary>
+<p><br></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>cumulative_even_sum <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  values <span class="ot">&lt;-</span> x<span class="sc">:</span>y    <span class="co"># first get all integers between the two values</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  even <span class="ot">&lt;-</span> values[<span class="fu">which</span>(values <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span>)]  <span class="co"># subset values that have a remainder of 0 when divided by 2</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sum</span>(even)  <span class="co"># sum the even values</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="fu">cumulative_even_sum</span>(<span class="dv">0</span>, <span class="dv">10</span>)</span></code></pre></div>
+<pre><code>## [1] 30</code></pre>
+</details>
+<p><br></p>
+<hr />
 </div>
 </div>
 <div id="reducing-repetitions-by-applying-loops" class="section level2">
 <h2>Reducing repetitions by applying loops</h2>
+<p>Another way to reduce repetition in our code is through the use of loops. When you create a loop, R will execute all commands within the loop a specified number of times or until a condition is met. There are three main types of loop in R:</p>
+<ol style="list-style-type: decimal">
+<li>the <em>for</em> loop</li>
+<li>the <em>while</em> loop</li>
+<li>the <em>repeat</em> loop <br></li>
+</ol>
+<p><img src="images/loops.png" width="80%" /></p>
+<div id="for-loops---the-most-common-r-loop" class="section level3">
+<h3>For loops - the most common R loop</h3>
+<p>A for loop is the most frequently used loop in the R language and is used to carry out a set of commands in an iterative manner over a collection of objects. This can be over each value of a vector, each column of a data frame, each component of a list etc. The loop will repeat the task a defined number of times.</p>
+<p><br> <code>for (variable in sequence) {expression}</code> <br></p>
+<p>The <em>sequence</em> is the collection of objects (eg., vector) over which the for-loop iterates. A <em>variable</em> is an item of that collection at each iteration, and the <em>expression</em> is a set of commands that we wish to apply to each variable. <br></p>
+<p>Let’s look at a simple for loop.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (x <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(x)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## [1] 1
+## [1] 2
+## [1] 3
+## [1] 4
+## [1] 5</code></pre>
+<p><br></p>
+<p>The expression inside of the loop, here <code>print(x)</code> is carried out iteratively for each value of x. In other words, the loop will first be completed using <code>x = 1</code>, then once it has finished another iteration begins with <code>x = 2</code>, then <code>x = 3</code>, until all variables in the sequence have been used. Even simple loops like this can be made useful in a real-world setting.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (month <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Month:&quot;</span>, month))</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;Month: 1&quot;
+## [1] &quot;Month: 2&quot;
+## [1] &quot;Month: 3&quot;
+## [1] &quot;Month: 4&quot;
+## [1] &quot;Month: 5&quot;</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (month <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (month <span class="sc">&lt;</span> <span class="dv">3</span>) {</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Winter&quot;</span>))</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> {</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Spring&quot;</span>))</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;Winter&quot;
+## [1] &quot;Winter&quot;
+## [1] &quot;Spring&quot;
+## [1] &quot;Spring&quot;
+## [1] &quot;Spring&quot;</code></pre>
+<p><br></p>
+<p><strong>I want to store the output of my for loop</strong><br />
+As was the case when we created our own functions, the results of a for loop are not automatically saved as an object in our environment. To do this we can append the results to an empty vector, which we define before the for loop.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>month_vector <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (month <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  month <span class="ot">&lt;-</span> (<span class="fu">paste</span>(<span class="st">&quot;Month:&quot;</span>, month))</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  month_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(month_vector, month)</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><br> <br></p>
+<details>
+<summary>
+Solution
+</summary>
+<p><br></p>
+<p><strong>Challenge: storing loop outputs</strong><br />
+Alter the seasons for loop to save a vector of length 5 which contains the outputs of our loop.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>seasons_vector <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (month <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (month <span class="sc">&lt;</span> <span class="dv">3</span>) {</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>    seasons_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(seasons_vector, <span class="st">&quot;Winter&quot;</span>)</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> {</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>    seasons_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(seasons_vector, <span class="st">&quot;Spring&quot;</span>)</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+</details>
+<p><br> <br></p>
+<p><strong>I want to use a for loop on a list</strong><br />
+Sometimes we want to do the same set of commands to different objects. For example, we may have a set of data frames that each hold the same experimental data taken from separate biological replicates. To do the same operations to these data frames, we could put these into a list and then loop over the lists. <br></p>
+<p>Let’s create some data frames and store them in a list.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Create example data frames</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>df_1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(month_vector, seasons_vector)</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>df_2 <span class="ot">&lt;-</span> df_1</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>df_3 <span class="ot">&lt;-</span> df_1</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="do">## Store data frames in a list</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>all_dfs <span class="ot">&lt;-</span> <span class="fu">list</span>(df_1, df_2, df_3)</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="do">## Store new names</span></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>new_names <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;updated_df1&quot;</span>, <span class="st">&quot;updated_df2&quot;</span>, <span class="st">&quot;updated_df3&quot;</span>)</span></code></pre></div>
+<p><br></p>
+<p>A list can be used to store data frames, vectors, matrices - most objects. To loop over items in a list we can use indexing.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(all_dfs)) {</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  df <span class="ot">&lt;-</span> all_dfs[[i]]</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  new_df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>    as_tibble <span class="sc">%&gt;%</span> </span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">weather =</span> <span class="fu">ifelse</span>(seasons_vector <span class="sc">==</span> <span class="st">&quot;Winter&quot;</span>, <span class="st">&quot;cold&quot;</span>, <span class="st">&quot;warm&quot;</span>))</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">assign</span>((new_names[[i]]), new_df, .GlobalEnv)</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><br></p>
+</div>
+<div id="the-lapply-function" class="section level3">
+<h3>The <code>lapply</code> function</h3>
+<p>We can also loop through a list using the <code>lapply</code> function. The <code>lapply</code> function takes two arguments, <code>X</code> and <code>FUN</code>. The value of <code>X</code> is the sequence we want to apply to e.g., a vector or list. The <code>FUN</code> argument is short for function, this can be a pre-existing function or we can define a function here.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Using lapply with a pre-existing function</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(<span class="at">X =</span> <span class="fu">c</span>(<span class="fl">1.34</span>, <span class="fl">1.78</span>, <span class="fl">2.34</span>, <span class="fl">1.12</span>), <span class="at">FUN =</span> round)</span></code></pre></div>
+<pre><code>## [[1]]
+## [1] 1
+## 
+## [[2]]
+## [1] 2
+## 
+## [[3]]
+## [1] 2
+## 
+## [[4]]
+## [1] 1</code></pre>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Using lapply with a user-defined function</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(<span class="at">X =</span> <span class="fu">c</span>(<span class="fl">1.34</span>, <span class="fl">1.78</span>, <span class="fl">2.34</span>, <span class="fl">1.12</span>), <span class="at">FUN =</span> <span class="cf">function</span>(x){</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<pre><code>## [[1]]
+## [1] 2.34
+## 
+## [[2]]
+## [1] 2.78
+## 
+## [[3]]
+## [1] 3.34
+## 
+## [[4]]
+## [1] 2.12</code></pre>
+<p><br></p>
+<p>The output of <code>lapply</code> is a list - we can tell this from the double square bracket nomenclature. To do the same thing but have our output as a vector we can use <code>sapply</code>.</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Using lapply with a user-defined function</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(<span class="at">X =</span> <span class="fu">c</span>(<span class="fl">1.34</span>, <span class="fl">1.78</span>, <span class="fl">2.34</span>, <span class="fl">1.12</span>), <span class="at">FUN =</span> <span class="cf">function</span>(x){</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<pre><code>## [1] 2.34 2.78 3.34 2.12</code></pre>
+<p><strong>Challenge: Using loops and the apply family of functions</strong> Add another columns to each of the updated data frames to store numerical temperature values (make these up). Then use the apply functions (<code>lapply</code> or <code>sapply</code>) to loop over the updated data frames and output a vector containing the mean temperature.</p>
+<details>
+<summary>
+Solution
+</summary>
+<p><br></p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Put objects into a list</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>updated_dfs <span class="ot">&lt;-</span> <span class="fu">list</span>(updated_df1, updated_df2, updated_df3)</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>new_names <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;updated_df1&quot;</span>, <span class="st">&quot;updated_df2&quot;</span>, <span class="st">&quot;updated_df3&quot;</span>)</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Create new temperature columns</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(updated_dfs)) {</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>  df <span class="ot">&lt;-</span> updated_dfs[[i]]</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>  df<span class="sc">$</span>temp <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">4.8</span>, <span class="fl">5.2</span>, <span class="dv">13</span>, <span class="fl">14.1</span>, <span class="fl">12.7</span>)</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">assign</span>((new_names[[i]]), df, .GlobalEnv)</span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a><span class="do">## Use sapply to get vector containing mean temperature</span></span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a>updated_dfs_v2 <span class="ot">&lt;-</span> <span class="fu">list</span>(updated_df1, updated_df2, updated_df3)</span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(<span class="at">X =</span> updated_dfs_v2, <span class="at">FUN =</span> <span class="cf">function</span>(x) {</span>
+<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">%&gt;%</span></span>
+<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pull</span>(temp) <span class="sc">%&gt;%</span></span>
+<span id="cb33-23"><a href="#cb33-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mean</span>()</span>
+<span id="cb33-24"><a href="#cb33-24" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb33-25"><a href="#cb33-25" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<pre><code>## [1] 9.96 9.96 9.96</code></pre>
+</details>
+<p><br> <br></p>
+</div>
 </div>
 
 
