@@ -416,16 +416,14 @@ for (month in 1:5) {
 
 ```
 <br>
-<br>
-
-<details>  
-<summary>Solution</summary> 
-<br>
 
 **Challenge: storing loop outputs**  
 Alter the seasons for loop to save a vector of length 5 which contains the 
 outputs of our loop. 
 
+<details>  
+<summary>Solution</summary> 
+<br>
 
 ```{r}
 seasons_vector <- c()
@@ -447,7 +445,6 @@ for (month in 1:5) {
 
 
 </details>
-<br>
 <br>
 
 **I want to use a for loop on a list**  

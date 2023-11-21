@@ -671,14 +671,14 @@ As was the case when we created our own functions, the results of a for loop are
 <span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  month_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(month_vector, month)</span>
 <span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<p><br> <br></p>
+<p><br></p>
+<p><strong>Challenge: storing loop outputs</strong><br />
+Alter the seasons for loop to save a vector of length 5 which contains the outputs of our loop.</p>
 <details>
 <summary>
 Solution
 </summary>
 <p><br></p>
-<p><strong>Challenge: storing loop outputs</strong><br />
-Alter the seasons for loop to save a vector of length 5 which contains the outputs of our loop.</p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>seasons_vector <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (month <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
@@ -695,7 +695,7 @@ Alter the seasons for loop to save a vector of length 5 which contains the outpu
 <span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 </details>
-<p><br> <br></p>
+<p><br></p>
 <p><strong>I want to use a for loop on a list</strong><br />
 Sometimes we want to do the same set of commands to different objects. For example, we may have a set of data frames that each hold the same experimental data taken from separate biological replicates. To do the same operations to these data frames, we could put these into a list and then loop over the lists. <br></p>
 <p>Let’s create some data frames and store them in a list.</p>
